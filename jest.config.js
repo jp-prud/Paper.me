@@ -1,3 +1,22 @@
 module.exports = {
   preset: 'react-native',
+  moduleNameMapper: {
+    '^@api(.*)$': '<rootDir>/src/api$1',
+    '^@components(.*)$': '<rootDir>/src/components$1',
+    '^@context(.*)$': '<rootDir>/src/context$1',
+    '^@domain(.*)$': '<rootDir>/src/domain$1',
+    '^@hooks(.*)$': '<rootDir>/src/hooks$1',
+    '^@routes(.*)$': '<rootDir>/src/routes$1',
+    '^@screens(.*)$': '<rootDir>/src/screens$1',
+    '^@services(.*)$': '<rootDir>/src/services$1',
+    '^@theme(.*)$': '<rootDir>/src/theme$1',
+    '^@types(.*)$': '<rootDir>/src/types$1',
+    '^@utils(.*)$': '<rootDir>/src/utils$1',
+  },
+  setupFiles: ['./jestSetupFile.js'],
+  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+  moduleDirectories: ['node_modules'],
+  modulePathIgnorePatterns: ['mocks', 'e2e/'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  collectCoverage: false,
 };

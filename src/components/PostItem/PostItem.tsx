@@ -6,7 +6,7 @@ import {Avatar} from '../Avatar/Avatar';
 import {Box, TouchableOpacityBox} from '../Box/Box';
 import {Text} from '../Text/Text';
 
-interface PostItemProps {
+export interface PostItemProps {
   post: PostProps;
 }
 
@@ -22,7 +22,10 @@ export function PostItem({post}: PostItemProps) {
   }
 
   return (
-    <TouchableOpacityBox gap="s8" onPress={handleClickNavigationPostDetails}>
+    <TouchableOpacityBox
+      gap="s8"
+      onPress={handleClickNavigationPostDetails}
+      testID="PostItem">
       <Box flexDirection="row" alignItems="center" gap="s8">
         <Avatar user={user} />
 

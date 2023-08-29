@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.academicreview"
+    namespace "com.paperme"
     defaultConfig {
-        applicationId "com.academicreview"
+        applicationId "com.paperme"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -2,7 +2,7 @@ import {Svg, Path} from 'react-native-svg';
 
 import {IconBase} from '@components';
 
-export function MessageIcon({color = 'black', size = 24}: IconBase) {
+export function FavoriteIcon({color = 'black', size = 24}: IconBase) {
   return (
     <Svg width={size} height={size} fill="none">
       <Path
@@ -11,14 +11,14 @@ export function MessageIcon({color = 'black', size = 24}: IconBase) {
         strokeLinejoin="round"
         strokeMiterlimit="10"
         strokeWidth="1.5"
-        d="M8.5 19H8c-4 0-6-1-6-6V8c0-4 2-6 6-6h8c4 0 6 2 6 6v5c0 4-2 6-6 6h-.5c-.31 0-.61.15-.8.4l-1.5 2c-.66.88-1.74.88-2.4 0l-1.5-2c-.16-.22-.53-.4-.8-.4Z"
+        d="M14.5 10.65h-5"
       />
       <Path
         stroke={color}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2"
-        d="M15.996 11h.01M11.995 11h.01M7.995 11h.008"
+        strokeWidth="1.5"
+        d="M16.82 2H7.18C5.05 2 3.32 3.74 3.32 5.86v14.09c0 1.8 1.29 2.56 2.87 1.69l4.88-2.71c.52-.29 1.36-.29 1.87 0l4.88 2.71c1.58.88 2.87.12 2.87-1.69V5.86C20.68 3.74 18.95 2 16.82 2Z"
       />
     </Svg>
   );

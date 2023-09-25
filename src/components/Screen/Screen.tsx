@@ -16,6 +16,8 @@ export interface ScreenProps extends BoxProps {
   scrollable?: boolean;
   isLoading?: boolean;
   title?: string;
+  customHeader?: React.ReactNode;
+  footerContainerStyle?: BoxProps['style'];
 }
 
 export function Screen({
@@ -26,6 +28,8 @@ export function Screen({
   FooterComponent,
   style,
   title,
+  customHeader,
+  footerContainerStyle,
   ...boxProps
 }: ScreenProps) {
   const {top, bottom} = useAppSafeArea();
@@ -63,7 +67,8 @@ export function Screen({
             style,
           ]}
           {...boxProps}>
-          {!isLoading && (title || canGoBack) && (
+          {!isLoading && customHeader}
+          {!isLoading && (title || canGoBack) && !customHeader && (
             <ScreenHeader title={title} canGoBack={canGoBack} />
           )}
 
@@ -74,7 +79,13 @@ export function Screen({
       </Container>
 
       {FooterComponent && !isLoading && (
-        <Box style={{paddingBottom: bottom}}>{FooterComponent}</Box>
+        <Box
+          style={[
+            {paddingBottom: bottom, backgroundColor: colors.background},
+            footerContainerStyle,
+          ]}>
+          {FooterComponent}
+        </Box>
       )}
     </KeyboardAvoidingView>
   );

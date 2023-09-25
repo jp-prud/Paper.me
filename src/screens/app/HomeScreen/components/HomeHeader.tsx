@@ -12,7 +12,7 @@ export function HomeHeader() {
     navigate('ProfileScreen');
   }
 
-  function handleClickNavigateToSearchScreen() {
+  function handleClickNavigateToNotificationScreen() {
     navigate('SearchScreen');
   }
 
@@ -24,14 +24,13 @@ export function HomeHeader() {
       pb="s12"
       borderBottomColor="gray4"
       borderBottomWidth={1}
-      mb="s24"
       backgroundColor="background">
       <TouchableOpacityBox onPress={handleClickNavigateToProfileScreen}>
         <Avatar user={userData} />
       </TouchableOpacityBox>
 
       <Text preset="paragraphLarge" bold>
-        Inbox
+        Início
       </Text>
 
       <TouchableOpacityBox
@@ -39,7 +38,7 @@ export function HomeHeader() {
         height={32}
         justifyContent="center"
         alignItems="center"
-        onPress={handleClickNavigateToSearchScreen}>
+        onPress={handleClickNavigateToNotificationScreen}>
         <Icon name="search" />
       </TouchableOpacityBox>
     </Box>

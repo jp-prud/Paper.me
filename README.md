@@ -1,79 +1,63 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+<h1 align="center">Paper.me 📖</h1>
 
-# Getting Started
+<p align="center">Expandindo Horizontes Acadêmicos com Aprendizado em Desenvolvimento Mobile 📱  <br> <strong>Desenvolvido</strong> com React Native, TypeScript, Restyle, DDD, React Query, Zod e mais.
+</p>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+<div align="center"><img src="https://i.imgur.com/sbgHAvk.jpg" title="Paper.me" alt="Paper.me" height="720"/></div>
 
-## Step 1: Start the Metro Server
+## Introdução
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+A disseminação do conhecimento científico é fundamental para o avanço da educação e pesquisa nas universidades. No entanto, muitas vezes, a complexidade na busca e compartilhamento de artigos científicos pode ser um obstáculo para os estudantes universitários. Pensando nisso, desenvolvemos o "Paper.me", uma plataforma inovadora que simplifica a leitura e compartilhamento de artigos científicos, criada especialmente para a comunidade universitária.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Objetivo
 
-```bash
-# using npm
-npm start
+O objetivo do projeto "Paper.me" é oferecer uma plataforma intuitiva e colaborativa que facilite o acesso a artigos científicos e promova o compartilhamento de conhecimento entre estudantes universitários. Com o "Paper.me", os estudantes poderão acessar uma vasta coleção de artigos científicos diretamente da palma de suas mãos, por meio de dispositivos móveis ou computadores. Além disso, a plataforma permitirá que os estudantes compartilhem seus próprios projetos e pesquisas com outros membros da faculdade de forma rápida e eficiente.
 
-# OR using Yarn
-yarn start
-```
+## Funcionalidades
 
-## Step 2: Start your Application
+Principais funcionalidades do "Paper.me":
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+| Funcionalidade                                       | Descrição                                                                                                                         |
+|------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Acesso simplificado a artigos científicos            | Os estudantes podem buscar e acessar facilmente artigos científicos de diversas áreas de conhecimento, tornando a pesquisa mais eficaz. |
+| Compartilhamento de projetos e pesquisas             | Os usuários podem fazer upload de seus próprios projetos e pesquisas, tornando-os acessíveis para outros membros da comunidade acadêmica. |
+| Colaboração e discussão                              | A plataforma permite comentários e discussões sobre os artigos e projetos, incentivando o debate e a troca de ideias entre os estudantes. |
+| Notificações personalizadas                          | Os usuários recebem notificações sobre novos artigos relevantes para suas áreas de interesse, mantendo-os atualizados sobre os últimos desenvolvimentos em suas áreas de estudo. |
+| Gerenciamento de biblioteca pessoal                   | Os estudantes podem criar bibliotecas pessoais de artigos e projetos favoritos para referência futura.                               |
 
-### For Android
+## Instalação
 
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
+Para realizar a instalação do projeto, siga os passos abaixo:
 
 ```bash
-# using npm
-npm run ios
+# Baixe este repositório ou clone pelo Git usando o comando:
+$ git clone https://github.com/jp-prud/Paper.me.git
 
-# OR using Yarn
-yarn ios
+# Acesse a pasta do projeto
+$ cd Paper.me
+
+# instale as dependencias
+$ yarn install
+      ou
+$ npm install
+
+# Inicie o Projeto
+$ yarn start
+      ou
+$ npm run start
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Conectando localmente com a API
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Caso optar por rodar o projeto localmente, siga o tutorial da [API](https://github.com/jp-prud/Paper.me-api).
 
-## Step 3: Modifying your App
+Para que funcione no Android, você precisa mapear a porta do da sua máquina para a do emulador. Quando o emulador estiver aberto basta rodar o comando abaixo:
+```
+adb reverse tcp:3333 tcp:3333
+```
 
-Now that you have successfully run the app, let's modify it.
+Além disso, algum sistemas operacionais não conseguem rodar com o endereço "localhost",  mas basta trocar para o IP local da API. No me caso é o endereço `http://127.0.0.1:3333`. Você encontra esse endereço após rodar o comando yarn dev no projeto da API.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+<div align="center">
+  <img src="https://i.imgur.com/mlRD4mk.png"/>
+</div>

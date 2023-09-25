@@ -24,3 +24,11 @@ export interface PostProps {
 }
 
 export interface PostResumeProps {}
+
+export interface CreatePostDTO {
+  title: string;
+  subtitle: string;
+  content: string;
+  description: string;
+  thumbnail?: string;
+}

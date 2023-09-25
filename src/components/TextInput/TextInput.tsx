@@ -52,7 +52,7 @@ export function TextInput({
     <Pressable onPress={handleClickInputFocus}>
       <Box g="s4">
         {label && (
-          <Text preset="paragraphMedium" semiBold>
+          <Text preset="paragraphSmall" semiBold>
             {label}
           </Text>
         )}

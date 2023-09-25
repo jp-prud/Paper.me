@@ -7,7 +7,12 @@ import {
 
 import {buttonPresets} from './buttonPresets';
 
-export type ButtonPreset = 'primary' | 'outline';
+export type ButtonPreset =
+  | 'primary'
+  | 'secondary'
+  | 'positive'
+  | 'negative'
+  | 'outline';
 
 interface ButtonProps extends TouchableOpacityBoxProps {
   text: string;

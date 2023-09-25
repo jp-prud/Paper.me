@@ -24,9 +24,51 @@ export const buttonPresets: Record<
     },
     disabled: {
       container: {
-        backgroundColor: 'gray4',
+        backgroundColor: 'neutral200',
       },
-      content: 'gray2',
+      content: 'neutral400',
+    },
+  },
+  secondary: {
+    default: {
+      container: {
+        backgroundColor: 'neutral800',
+      },
+      content: 'primaryContrast',
+    },
+    disabled: {
+      container: {
+        backgroundColor: 'neutral200',
+      },
+      content: 'neutral400',
+    },
+  },
+  positive: {
+    default: {
+      container: {
+        backgroundColor: 'green600',
+      },
+      content: 'primaryContrast',
+    },
+    disabled: {
+      container: {
+        backgroundColor: 'neutral200',
+      },
+      content: 'neutral400',
+    },
+  },
+  negative: {
+    default: {
+      container: {
+        backgroundColor: 'red600',
+      },
+      content: 'primaryContrast',
+    },
+    disabled: {
+      container: {
+        backgroundColor: 'neutral200',
+      },
+      content: 'neutral400',
     },
   },
   outline: {

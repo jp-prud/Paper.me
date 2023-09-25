@@ -3,21 +3,45 @@ import {Pressable} from 'react-native';
 import {useAppTheme} from '@hooks';
 import {ThemeColors} from '@theme';
 
-import {ArticleIcon} from '../../assets/icons/ArticleIcon';
-import {BellIcon} from '../../assets/icons/BellIcon';
-import {CheckIcon} from '../../assets/icons/CheckIcon';
-import {ChevronIcon} from '../../assets/icons/ChevronIcon';
-import {CloseIcon} from '../../assets/icons/CloseIcon';
-import {HeartIcon} from '../../assets/icons/HeartIcon';
-import {LogoutIcon} from '../../assets/icons/LogoutIcon';
-import {MessageIcon} from '../../assets/icons/MessageIcon';
-import {ReloadIcon} from '../../assets/icons/ReloadIcon';
-import {SearchIcon} from '../../assets/icons/SearchIcon';
-import {ShareIcon} from '../../assets/icons/ShareIcon';
+import {
+  ArrowIcon,
+  ArticleIcon,
+  BellIcon,
+  ClockIcon,
+  CheckIcon,
+  ChevronIcon,
+  CloseIcon,
+  HeartIcon,
+  HomeIcon,
+  FavoriteIcon,
+  LogoutIcon,
+  ListCheckIcon,
+  ListOrderedLineIcon,
+  MessageIcon,
+  PencilIcon,
+  ReloadIcon,
+  SearchIcon,
+  ShareIcon,
+  UserIcon,
+  RedoIcon,
+  KeyboardIcon,
+  UndoIcon,
+  TextBoldIcon,
+  TextItalicIcon,
+  TextLinkIcon,
+  TextStrikethroughIcon,
+  TextUnderlineIcon,
+  LineIcon,
+  TextHeadingIcon,
+  TextDefaultIcon,
+  SuccessIcon,
+} from '../../assets/icons';
+import {Box} from '../Box/Box';
 
 export interface IconBase {
   size?: number;
   color?: string;
+  testID?: string;
 }
 
 export interface IconProps {
@@ -46,21 +70,41 @@ export function Icon({
     );
   }
 
-  return Icon;
+  return <Box testID="Icon">{Icon}</Box>;
 }
 
 const iconRegistry = {
+  arrow: ArrowIcon,
   article: ArticleIcon,
   bell: BellIcon,
+  clock: ClockIcon,
   check: CheckIcon,
   chevron: ChevronIcon,
   close: CloseIcon,
   heart: HeartIcon,
+  home: HomeIcon,
+  favorite: FavoriteIcon,
   logout: LogoutIcon,
+  listCheck: ListCheckIcon,
+  listOrder: ListOrderedLineIcon,
   message: MessageIcon,
+  pencil: PencilIcon,
   reload: ReloadIcon,
   search: SearchIcon,
   share: ShareIcon,
+  user: UserIcon,
+  redo: RedoIcon,
+  keyboard: KeyboardIcon,
+  undo: UndoIcon,
+  textBold: TextBoldIcon,
+  textItalic: TextItalicIcon,
+  textLink: TextLinkIcon,
+  textStriketrough: TextStrikethroughIcon,
+  textUnderline: TextUnderlineIcon,
+  line: LineIcon,
+  textHeading: TextHeadingIcon,
+  textDefault: TextDefaultIcon,
+  success: SuccessIcon,
 };
 
 type IconType = typeof iconRegistry;

@@ -1,11 +1,11 @@
 import {Dimensions} from 'react-native';
 
-import {ToastPosition, ToastProps} from '@context';
+import {ToastProps, ToastType} from '@context';
 
 import {$shadowProps} from '@theme';
 
 import {Box, BoxProps} from '../../Box/Box';
-import {Icon} from '../../Icon/Icon';
+import {Icon, IconProps} from '../../Icon/Icon';
 import {Text} from '../../Text/Text';
 
 const MAX_WIDTH = Dimensions.get('screen').width * 0.9;
@@ -15,15 +15,26 @@ interface ToastContentPros {
 }
 
 export function ToastContent({toast}: ToastContentPros) {
-  const position: ToastPosition = toast?.position || 'top';
+  const type: ToastType = toast?.type || 'success';
 
   return (
-    <Box {...$boxStyles} style={[{[position]: 100}, $shadowProps]}>
-      <Icon name="share" />
+    <Box {...$boxStyles} style={[$shadowProps]}>
+      <Icon {...mapTypeToIcon[type]} />
       <Text>{toast?.message}</Text>
     </Box>
   );
 }
+
+const mapTypeToIcon: Record<ToastType, IconProps> = {
+  success: {
+    color: 'success',
+    name: 'success',
+  },
+  info: {
+    color: 'backgroundContrast',
+    name: 'message',
+  },
+};
 
 const $boxStyles: BoxProps = {
   backgroundColor: 'background',

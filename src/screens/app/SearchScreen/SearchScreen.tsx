@@ -1,24 +1,18 @@
-import {Box, Screen, Text, TextInput} from '@components';
+import {Box, Screen, Tabs, Text, TextInput, TitleBar} from '@components';
 import {AppScreenProps} from '@routes';
 
 import {CategoryItem, SearchPostItem} from './components';
 
 export function SearchScreen({}: AppScreenProps<'SearchScreen'>) {
   return (
-    <Screen canGoBack title="Search">
+    <Screen canGoBack title="Busca">
       <TextInput placeholder="Search Paper.me" />
 
-      <Box mt="s12" mb="s16" flexDirection="row" alignItems="center" gap="s8">
-        <Box flex={1} height={1} backgroundColor="gray4" />
-        <Text
-          textTransform="uppercase"
-          preset="paragraphCaption"
-          bold
-          color="gray1">
-          🌟{'  '}Featured this week
-        </Text>
-        <Box flex={1} height={1} backgroundColor="gray4" />
-      </Box>
+      <Box mt="s16" mb="s16" height={1} backgroundColor="neutral100" />
+
+      <Tabs list={['Crypto', 'Tecnologia', 'Finanças', 'Saúde']} />
+
+      <TitleBar title="Novidades" linkText="Ver mais" mb="s24" mt="s20" />
 
       <SearchPostItem
         post={{
@@ -33,17 +27,33 @@ export function SearchScreen({}: AppScreenProps<'SearchScreen'>) {
         }}
       />
 
-      <Text preset="paragraphLarge" bold marginVertical="s16">
-        Categories
-      </Text>
+      <TitleBar title="Todas as categorias" mt="s24" mb="s24" />
 
-      <CategoryItem
-        category={{
-          id: '1',
-          icon: '🍔',
-          name: 'Food',
-        }}
-      />
+      <Box flexDirection="row" gap="s16">
+        <CategoryItem
+          category={{
+            id: '1',
+            icon: '🍔',
+            name: 'Food',
+          }}
+        />
+
+        <CategoryItem
+          category={{
+            id: '1',
+            icon: '🌑',
+            name: 'Crypto',
+          }}
+        />
+
+        <CategoryItem
+          category={{
+            id: '1',
+            icon: '🍎',
+            name: 'Saúde',
+          }}
+        />
+      </Box>
     </Screen>
   );
 }

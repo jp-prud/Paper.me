@@ -3,6 +3,8 @@
 <p align="center">Expandindo Horizontes Acadêmicos com Aprendizado em Desenvolvimento Mobile 📱  <br> <strong>Desenvolvido</strong> com React Native, TypeScript, Restyle, DDD, React Query, Zod e mais.
 </p>
 
+<div align="center"><img src="https://i.imgur.com/sbgHAvk.jpg" title="Paper.me" alt="Paper.me" height="720"/></div>
+
 ## Introdução
 
 A disseminação do conhecimento científico é fundamental para o avanço da educação e pesquisa nas universidades. No entanto, muitas vezes, a complexidade na busca e compartilhamento de artigos científicos pode ser um obstáculo para os estudantes universitários. Pensando nisso, desenvolvemos o "Paper.me", uma plataforma inovadora que simplifica a leitura e compartilhamento de artigos científicos, criada especialmente para a comunidade universitária.

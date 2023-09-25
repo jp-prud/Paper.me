@@ -25,6 +25,8 @@ export function Text({
   semiBold,
   segoe,
   style,
+  selectable,
+  selectionColor = '#c7e7ea',
   ...sRTextProps
 }: TextProps) {
   const fontFamily = getFontFamily(preset, bold, italic, semiBold, segoe);
@@ -33,6 +35,8 @@ export function Text({
     <SRText
       color="backgroundContrast"
       style={[$fontSizes[preset], {fontFamily}, style]}
+      selectable={selectable}
+      selectionColor={selectionColor}
       {...sRTextProps}>
       {children}
     </SRText>

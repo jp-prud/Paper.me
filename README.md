@@ -24,3 +24,40 @@ Principais funcionalidades do "Paper.me":
 | Colaboração e discussão                              | A plataforma permite comentários e discussões sobre os artigos e projetos, incentivando o debate e a troca de ideias entre os estudantes. |
 | Notificações personalizadas                          | Os usuários recebem notificações sobre novos artigos relevantes para suas áreas de interesse, mantendo-os atualizados sobre os últimos desenvolvimentos em suas áreas de estudo. |
 | Gerenciamento de biblioteca pessoal                   | Os estudantes podem criar bibliotecas pessoais de artigos e projetos favoritos para referência futura.                               |
+
+## Instalação
+
+Para realizar a instalação do projeto, siga os passos abaixo:
+
+```bash
+# Baixe este repositório ou clone pelo Git usando o comando:
+$ git clone https://github.com/jp-prud/Paper.me.git
+
+# Acesse a pasta do projeto
+$ cd Paper.me
+
+# instale as dependencias
+$ yarn install
+      ou
+$ npm install
+
+# Inicie o Projeto
+$ yarn start
+      ou
+$ npm run start
+```
+
+## Conectando localmente com a API
+
+Caso optar por rodar o projeto localmente, siga o tutorial da [API](https://github.com/jp-prud/Paper.me-api).
+
+Para que funcione no Android, você precisa mapear a porta do da sua máquina para a do emulador. Quando o emulador estiver aberto basta rodar o comando abaixo:
+```
+adb reverse tcp:3333 tcp:3333
+```
+
+Além disso, algum sistemas operacionais não conseguem rodar com o endereço "localhost",  mas basta trocar para o IP local da API. No me caso é o endereço `http://127.0.0.1:3333`. Você encontra esse endereço após rodar o comando yarn dev no projeto da API.
+
+<div align="center">
+  <img src="https://i.imgur.com/mlRD4mk.png"/>
+</div>

@@ -18,6 +18,10 @@ export interface AvatarProps {
 export function Avatar({size = 32, user}: AvatarProps) {
   const {avatar, name} = user;
 
+  if (!avatar) {
+    return null;
+  }
+
   return (
     <Box
       width={size}
@@ -25,21 +29,18 @@ export function Avatar({size = 32, user}: AvatarProps) {
       borderRadius="s32"
       backgroundColor="gray1"
       justifyContent="center"
-      alignItems="center">
-      {avatar ? (
-        <Box borderRadius="s32" overflow="hidden">
-          <Image
-            source={{
-              uri: avatar,
-            }}
-            alt={name}
-            width={size}
-            height={size}
-          />
-        </Box>
-      ) : (
-        <Text textTransform="uppercase">{name}</Text>
-      )}
+      alignItems="center"
+      testID="Avatar">
+      <Box borderRadius="s32" overflow="hidden">
+        <Image
+          source={{
+            uri: avatar,
+          }}
+          alt={name}
+          width={size}
+          height={size}
+        />
+      </Box>
     </Box>
   );
 }

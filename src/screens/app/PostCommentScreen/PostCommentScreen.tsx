@@ -37,7 +37,7 @@ export function PostCommentScreen({
       FooterComponent={
         <FixedCommentSection postId={postId} onAddComment={refetch} />
       }
-      title="Comentários"
+      title={`Comentários (${commentsList.length})`}
       isLoading={isLoading}>
       <FlatList
         data={commentsList}

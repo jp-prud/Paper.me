@@ -1,4 +1,6 @@
 import {CategoryProps, PostProps} from '@domain';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
+import {CompositeScreenProps} from '@react-navigation/native';
 import {
   NativeStackNavigationOptions,
   NativeStackScreenProps,
@@ -9,9 +11,11 @@ export type AuthStackParamList = {
 };
 
 export type AppStackParamList = {
+  AppTabNavigator: undefined;
   HomeScreen: undefined;
   ProfileScreen: undefined;
   SearchScreen: undefined;
+  ListScreen: undefined;
   CategoryScreen: {
     categoryId: CategoryProps['id'];
   };
@@ -21,6 +25,17 @@ export type AppStackParamList = {
   PostCommentScreen: {
     postId: PostProps['id'];
   };
+  PreviewPostScreen: undefined;
+  CreateContentPostScreen: {
+    post: Pick<PostProps, 'title' | 'subtitle' | 'thumbnail' | 'description'>;
+  };
+};
+
+export type AppTabNavigatorParamList = {
+  HomeScreen: undefined;
+  SearchScreen: undefined;
+  ListScreen: undefined;
+  ProfileScreen: undefined;
 };
 
 export type AppScreenProps<RouteScreenName extends keyof AppStackParamList> =
@@ -30,6 +45,13 @@ export type AuthScreenProps<RouteScreenName extends keyof AuthStackParamList> =
   NativeStackScreenProps<AuthStackParamList, RouteScreenName>;
 
 export type RootStackParamList = AuthStackParamList & AppStackParamList;
+
+export type AppTabScreenProps<
+  RouteName extends keyof AppTabNavigatorParamList,
+> = CompositeScreenProps<
+  BottomTabScreenProps<AppTabNavigatorParamList, RouteName>,
+  NativeStackScreenProps<AppStackParamList, 'AppTabNavigator'>
+>;
 
 declare global {
   namespace ReactNavigation {

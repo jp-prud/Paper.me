@@ -13,3 +13,7 @@ export * from './Icon/Icon';
 export * from './RenderIf/RenderIf';
 export * from './RenderIfElse/RenderIfElse';
 export * from './Toast/Toast';
+export * from './LinkStandAlone/LinkStandAlone';
+export * from './Tabs/Tabs';
+export * from './ScreenTabBarButton/ScreenTabBarButton';
+export * from './TitleBar/TitleBar';

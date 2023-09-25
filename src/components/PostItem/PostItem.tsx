@@ -1,3 +1,5 @@
+import {Image} from 'react-native';
+
 import {PostProps} from '@domain';
 import {useNavigation} from '@react-navigation/native';
 import {formatRelative} from '@utils';
@@ -6,12 +8,17 @@ import {Avatar} from '../Avatar/Avatar';
 import {Box, TouchableOpacityBox} from '../Box/Box';
 import {Text} from '../Text/Text';
 
+import {Thumbnail} from './components/Thumbnail';
+
 export interface PostItemProps {
-  post: PostProps;
+  post: Pick<
+    PostProps,
+    'id' | 'createdAt' | 'title' | 'description' | 'user' | 'thumbnail'
+  >;
 }
 
 export function PostItem({post}: PostItemProps) {
-  const {id: postId, createdAt, title, description, user} = post;
+  const {id: postId, createdAt, title, description, thumbnail, user} = post;
 
   const {navigate} = useNavigation();
 
@@ -25,7 +32,8 @@ export function PostItem({post}: PostItemProps) {
     <TouchableOpacityBox
       gap="s8"
       onPress={handleClickNavigationPostDetails}
-      testID="PostItem">
+      testID="PostItem"
+      backgroundColor="white">
       <Box flexDirection="row" alignItems="center" gap="s8">
         <Avatar user={user} />
 
@@ -49,23 +57,10 @@ export function PostItem({post}: PostItemProps) {
           </Text>
         </Box>
 
-        <Box
-          width={116}
-          height={116}
-          backgroundColor="gray1"
-          borderRadius="s16"
-        />
+        <Thumbnail thumbnail={thumbnail} />
       </Box>
 
       <Box flexDirection="row" alignItems="center">
-        {/* <Box
-          width={4}
-          height={4}
-          backgroundColor="gray2"
-          borderRadius="s8"
-          marginHorizontal="s8"
-        /> */}
-
         <Text preset="paragraphSmall" color="gray2" semiBold>
           {formatRelative(createdAt)} atrás
         </Text>

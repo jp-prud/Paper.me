@@ -14,6 +14,7 @@ export function TitleBar({
 }: TitleBarProps & BoxProps) {
   return (
     <Box
+      testID="title-bar"
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"

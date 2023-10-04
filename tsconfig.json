@@ -28,7 +28,7 @@
       "@theme": ["src/theme"],
       "@types": ["src/types"],
       "@utils": ["src/utils"],
-      "@tests": ["tests"]
+      "test-utils": ["./test/test-utils"]
     },
   },
   "exclude": [

@@ -26,7 +26,8 @@ export type TouchableOpacityBoxProps = TouchableOpacityProps &
   BorderProps<Theme> &
   LayoutProps<Theme> &
   SpacingProps<Theme> &
-  SpacingShorthandProps<Theme>;
+  SpacingShorthandProps<Theme> &
+  ComponentProps<typeof Box>;
 
 export const TouchableOpacityBox = createRestyleComponent<
   TouchableOpacityBoxProps,

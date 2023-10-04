@@ -1,3 +1,5 @@
+import {SignUpParamsDTO} from '../../services/AuthService';
+
 export interface AuthProps {
   isAuthenticated: boolean;
 }
@@ -7,9 +9,4 @@ export interface AuthServiceProps {
   handleSignUp: () => void;
   handleLogout: () => void;
   isLoading: boolean;
-}
-
-export interface SignUpParamsDTO {
-  email: string;
-  password: string;
 }

@@ -1,10 +1,10 @@
 import {createContext, useCallback, useState} from 'react';
 
-import {AuthProps, AuthServiceProps, SignUpParamsDTO} from '@context';
+import {AuthProps, AuthServiceProps} from '@context';
 import {useMutation} from '@infra';
 import {delay} from '@utils';
 
-import AuthService from '../../../services/AuthService';
+import AuthService, {SignUpParamsDTO} from '../../../services/AuthService';
 import {HttpClient} from '../../../services/utils/HttpClient';
 
 export const AuthContext = createContext({} as AuthServiceProps & AuthProps);

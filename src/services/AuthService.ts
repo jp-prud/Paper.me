@@ -1,4 +1,7 @@
-import {SignUpParamsDTO} from '@context';
+export interface SignUpParamsDTO {
+  email: string;
+  password: string;
+}
 
 class AuthService {
   async signIn(signUpDTO: SignUpParamsDTO) {

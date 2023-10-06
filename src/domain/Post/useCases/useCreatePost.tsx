@@ -1,6 +1,6 @@
-import {MutationOptions, useMutation} from '@infra';
+import {MutationOptions, useMutation} from '@hooks';
 
-import PostService from '../../../services/PostService';
+import PostService from '../../../services/PostService/PostService';
 import {CreatePostDTO} from '../Post.types';
 
 interface useCreatePostProps {

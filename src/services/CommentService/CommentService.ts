@@ -1,9 +1,9 @@
 import {CommentProps, CreateCommentDTO, PostProps} from '@types';
 
-import {HttpClient} from './utils/HttpClient';
+import {HttpClient} from '../utils/HttpClient';
 
-class CommentService {
-  async getCommentsByPost(postId: PostProps['id']) {
+export function CommentService() {
+  async function getCommentsByPost(postId: PostProps['id']) {
     const response = await HttpClient.get<CommentProps[]>(
       `/comments/${postId}`,
     );
@@ -11,7 +11,10 @@ class CommentService {
     return response.data;
   }
 
-  async create(createCommentDTO: CreateCommentDTO, postId: PostProps['id']) {
+  async function create(
+    createCommentDTO: CreateCommentDTO,
+    postId: PostProps['id'],
+  ) {
     const response = await HttpClient.post<CommentProps>(
       `/comments/${postId}`,
       createCommentDTO,
@@ -19,6 +22,9 @@ class CommentService {
 
     return response.data;
   }
-}
 
-export default new CommentService();
+  return {
+    getCommentsByPost,
+    create,
+  };
+}

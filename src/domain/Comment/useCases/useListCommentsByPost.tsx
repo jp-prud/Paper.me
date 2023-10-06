@@ -1,17 +1,18 @@
 import {useCallback, useEffect, useState} from 'react';
 
+import {CommentService} from '@services';
 import {CommentProps, PostProps} from '@types';
 
-import CommentService from '../../../services/CommentService';
-
 export function useListCommentsByPost(postId: PostProps['id']) {
+  const {getCommentsByPost} = CommentService();
+
   const [commentsList, setCommentsList] = useState<CommentProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const getCommentsList = useCallback(async () => {
     try {
-      const data = await CommentService.getCommentsByPost(postId);
+      const data = await getCommentsByPost(postId);
 
       setCommentsList(data);
     } catch (erro) {
@@ -21,7 +22,7 @@ export function useListCommentsByPost(postId: PostProps['id']) {
     } finally {
       setIsLoading(false);
     }
-  }, [postId]);
+  }, [postId, getCommentsByPost]);
 
   useEffect(() => {
     getCommentsList();

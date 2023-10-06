@@ -1,15 +1,16 @@
+import {CommentService} from '@services';
 import {CreateCommentDTO, PostProps} from '@types';
 
 import {MutationOptions, useMutation} from '@hooks';
-
-import CommentService from '../../../services/CommentService';
 
 export function useCreateComment(
   postId: PostProps['id'],
   options?: MutationOptions<void>,
 ) {
+  const {create} = CommentService();
+
   const {mutate, error, isLoading} = useMutation<CreateCommentDTO, any>(
-    createCommentDTO => CommentService.create(createCommentDTO, postId),
+    createCommentDTO => create(createCommentDTO, postId),
     options,
   );
 

@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Icon, TouchableOpacityBox, TouchableOpacityBoxProps} from '@components';
 import {$shadowProps} from '@theme';
 
-export function AddAPostFixedButton() {
+export function AddPostFixedButton() {
   const {navigate} = useNavigation();
 
   function handlePressNavigate() {
@@ -14,6 +14,7 @@ export function AddAPostFixedButton() {
 
   return (
     <TouchableOpacityBox
+      testID="add-post-fixed-button"
       onPress={handlePressNavigate}
       {...$touchableContainerStyles}
       style={[$shadowProps, $fixedContainerStyle]}>

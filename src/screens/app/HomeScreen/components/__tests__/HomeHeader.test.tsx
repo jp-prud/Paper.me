@@ -1,5 +1,5 @@
+import {fireEvent, render} from '@tests';
 import {mockedNavigate} from 'jestSetupFile.js';
-import {fireEvent, render} from 'test-utils';
 
 import {HomeHeader} from '../HomeHeader';
 
@@ -8,13 +8,13 @@ afterEach(() => {
 });
 
 describe('HomeHeader', () => {
-  test('should render the component', () => {
+  it('should render the component', () => {
     const {getByTestId} = render(<HomeHeader />);
 
     expect(getByTestId('home-header')).toBeTruthy();
   });
 
-  test("should navigate to 'ProfileScreen' when avatar is pressabled", () => {
+  it("should navigate to 'ProfileScreen' when avatar is pressabled", () => {
     const {getByTestId} = render(<HomeHeader />);
 
     const avatarHeaderContainer = getByTestId('avatar-header-container');
@@ -26,7 +26,7 @@ describe('HomeHeader', () => {
     expect(mockedNavigate).toHaveBeenCalledTimes(1);
   });
 
-  test("should navigate to 'SearchScreen' when search icon is pressabled", () => {
+  it("should navigate to 'SearchScreen' when search icon is pressabled", () => {
     const {getByTestId} = render(<HomeHeader />);
 
     const searchHeaderContainer = getByTestId('search-header-container');

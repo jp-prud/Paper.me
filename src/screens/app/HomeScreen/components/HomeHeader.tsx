@@ -24,8 +24,11 @@ export function HomeHeader() {
       pb="s12"
       borderBottomColor="gray4"
       borderBottomWidth={1}
-      backgroundColor="background">
-      <TouchableOpacityBox onPress={handleClickNavigateToProfileScreen}>
+      backgroundColor="background"
+      testID="home-header">
+      <TouchableOpacityBox
+        onPress={handleClickNavigateToProfileScreen}
+        testID="avatar-header-container">
         <Avatar user={userData} />
       </TouchableOpacityBox>
 
@@ -38,7 +41,8 @@ export function HomeHeader() {
         height={32}
         justifyContent="center"
         alignItems="center"
-        onPress={handleClickNavigateToNotificationScreen}>
+        onPress={handleClickNavigateToNotificationScreen}
+        testID="search-header-container">
         <Icon name="search" />
       </TouchableOpacityBox>
     </Box>

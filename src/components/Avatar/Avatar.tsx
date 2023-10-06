@@ -1,14 +1,8 @@
 import {Image} from 'react-native';
 
-import {Box} from '../Box/Box';
-import {Text} from '../Text/Text';
+import {UserProps} from '@types';
 
-export interface UserProps {
-  id: string;
-  name: string;
-  email: string;
-  avatar: string;
-}
+import {Box} from '../Box/Box';
 
 export interface AvatarProps {
   size?: number;
@@ -18,10 +12,6 @@ export interface AvatarProps {
 export function Avatar({size = 32, user}: AvatarProps) {
   const {avatar, name} = user;
 
-  if (!avatar) {
-    return null;
-  }
-
   return (
     <Box
       width={size}
@@ -30,7 +20,7 @@ export function Avatar({size = 32, user}: AvatarProps) {
       backgroundColor="gray1"
       justifyContent="center"
       alignItems="center"
-      testID="Avatar">
+      testID="avatar-component">
       <Box borderRadius="s32" overflow="hidden">
         <Image
           source={{

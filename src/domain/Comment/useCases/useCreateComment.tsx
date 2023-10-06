@@ -1,5 +1,6 @@
-import {CreateCommentDTO, PostProps} from '@domain';
-import {MutationOptions, useMutation} from '@infra';
+import {CreateCommentDTO, PostProps} from '@types';
+
+import {MutationOptions, useMutation} from '@hooks';
 
 import CommentService from '../../../services/CommentService';
 

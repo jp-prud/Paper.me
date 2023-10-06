@@ -1,4 +1,4 @@
-import {CommentProps} from '@domain';
+import {CommentProps} from '@types';
 import {formatRelative} from '@utils';
 
 import {Box, Avatar, TouchableOpacityBox, Icon, Text} from '@components';

@@ -1,7 +1,7 @@
 import {Pressable} from 'react-native';
 
-import {PostProps} from '@domain';
 import {useNavigation} from '@react-navigation/native';
+import {PostProps} from '@types';
 
 import {Box, Text} from '@components';
 

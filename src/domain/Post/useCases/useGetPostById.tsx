@@ -1,8 +1,7 @@
 import {useCallback, useEffect, useState} from 'react';
 
 import {PostService} from '@services';
-
-import {PostProps} from '../Post.types';
+import {PostProps} from '@types';
 
 export function useGetPostById(postId: PostProps['id']) {
   const {findById} = PostService();

@@ -1,7 +1,5 @@
-import {Image} from 'react-native';
-
-import {PostProps} from '@domain';
 import {useNavigation} from '@react-navigation/native';
+import {PostProps} from '@types';
 import {formatRelative} from '@utils';
 
 import {Avatar} from '../Avatar/Avatar';

@@ -1,4 +1,4 @@
-import {PostProps} from '@domain';
+import {PostProps} from '@types';
 
 export const mockPostList: PostProps[] = [
   {

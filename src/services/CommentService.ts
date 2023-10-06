@@ -1,4 +1,4 @@
-import {CommentProps, CreateCommentDTO, PostProps} from '@domain';
+import {CommentProps, CreateCommentDTO, PostProps} from '@types';
 
 import {HttpClient} from './utils/HttpClient';
 

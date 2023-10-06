@@ -1,6 +1,6 @@
 import {Image} from 'react-native';
 
-import {PostProps} from '@domain';
+import {PostProps} from '@types';
 import {formatRelative} from '@utils';
 
 import {Avatar, Box, Text, RenderIf} from '@components';

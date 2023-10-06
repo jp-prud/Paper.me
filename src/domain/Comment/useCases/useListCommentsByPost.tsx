@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
 
-import {CommentProps, PostProps} from '@domain';
+import {CommentProps, PostProps} from '@types';
 
 import CommentService from '../../../services/CommentService';
 
@@ -15,7 +15,7 @@ export function useListCommentsByPost(postId: PostProps['id']) {
 
       setCommentsList(data);
     } catch (erro) {
-      console.log(erro);
+      console.error(erro);
 
       setError(true);
     } finally {

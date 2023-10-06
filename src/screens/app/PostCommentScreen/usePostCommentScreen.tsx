@@ -1,5 +1,5 @@
-import {PostProps} from '@domain';
 import {useListCommentsByPost} from '@domain';
+import {PostProps} from '@types';
 
 export function usePostCommentScreen(postId: PostProps['id']) {
   const {commentsList, refetch, error, isLoading} =

@@ -1,4 +1,4 @@
-import {UserProps} from '@domain';
+import {UserProps} from '@types';
 
 export const mockUser: UserProps = {
   id: '7856bd2d-e559-4e74-9b31-5bf231f8deb5',

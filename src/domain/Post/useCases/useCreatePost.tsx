@@ -1,8 +1,7 @@
 import {PostService} from '@services';
+import {CreatePostDTO} from '@types';
 
 import {MutationOptions, useMutation} from '@hooks';
-
-import {CreatePostDTO} from '../Post.types';
 
 interface useCreatePostProps {
   options?: MutationOptions<void>;

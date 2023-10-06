@@ -1,8 +1,8 @@
-import {PostProps} from '@domain';
-import {usePostById} from '@domain';
+import {useGetPostById} from '@domain';
+import {PostProps} from '@types';
 
 export function usePostDetailsScreen(postId: PostProps['id']) {
-  const {post, isLoading, error} = usePostById(postId);
+  const {post, isLoading, error} = useGetPostById(postId);
 
   return {
     post,

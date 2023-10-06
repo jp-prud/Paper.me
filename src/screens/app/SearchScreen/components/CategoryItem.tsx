@@ -1,4 +1,4 @@
-import {CategoryProps} from '@domain';
+import {CategoryProps} from '@types';
 
 import {Box, Text} from '@components';
 

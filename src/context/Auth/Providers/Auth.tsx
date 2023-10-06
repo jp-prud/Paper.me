@@ -1,8 +1,9 @@
 import {createContext, useCallback, useState} from 'react';
 
 import {AuthProps, AuthServiceProps} from '@context';
-import {useMutation} from '@infra';
 import {delay} from '@utils';
+
+import {useMutation} from '@hooks';
 
 import AuthService, {SignUpParamsDTO} from '../../../services/AuthService';
 import {HttpClient} from '../../../services/utils/HttpClient';

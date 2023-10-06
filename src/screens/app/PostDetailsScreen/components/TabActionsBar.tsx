@@ -1,5 +1,5 @@
-import {PostProps} from '@domain';
 import {useNavigation} from '@react-navigation/native';
+import {PostProps} from '@types';
 
 import {Box, Icon, IconName, Text, TouchableOpacityBox} from '@components';
 import {useAppSafeArea} from '@hooks';

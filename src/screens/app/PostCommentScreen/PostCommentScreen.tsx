@@ -1,6 +1,6 @@
 import {FlatList, ListRenderItemInfo} from 'react-native';
 
-import {CommentProps} from '@domain';
+import {CommentProps} from '@types';
 
 import {Box, Screen} from '@components';
 import {AppScreenProps} from '@routes';

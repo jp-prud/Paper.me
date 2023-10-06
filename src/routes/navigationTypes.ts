@@ -1,10 +1,10 @@
-import {CategoryProps, PostProps} from '@domain';
 import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
 import {CompositeScreenProps} from '@react-navigation/native';
 import {
   NativeStackNavigationOptions,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
+import {CategoryProps, PostProps} from '@types';
 
 export type AuthStackParamList = {
   SignInScreen: undefined;

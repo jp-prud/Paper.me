@@ -1,6 +1,6 @@
 import {Image} from 'react-native';
 
-import {PostProps} from '@domain';
+import {PostProps} from '@types';
 
 import {Box, RenderIfElse} from '@components';
 

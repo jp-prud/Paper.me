@@ -1,4 +1,4 @@
-import {CreatePostDTO, PostProps} from '@domain';
+import {CreatePostDTO, PostProps} from '@types';
 
 import {HttpClient} from '../utils/HttpClient';
 

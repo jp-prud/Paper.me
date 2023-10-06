@@ -1,4 +1,4 @@
-import {SignUpParamsDTO} from '../../services/AuthService';
+import {SignUpParamsDTO} from '@services';
 
 export interface AuthProps {
   isAuthenticated: boolean;

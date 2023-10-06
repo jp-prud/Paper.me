@@ -1,20 +1,21 @@
 import {createContext, useCallback, useState} from 'react';
 
 import {AuthProps, AuthServiceProps} from '@context';
+import {AuthService, SignUpParamsDTO} from '@services';
 import {delay} from '@utils';
 
 import {useMutation} from '@hooks';
 
-import AuthService, {SignUpParamsDTO} from '../../../services/AuthService';
 import {HttpClient} from '../../../services/utils/HttpClient';
 
 export const AuthContext = createContext({} as AuthServiceProps & AuthProps);
 
 export function AuthProvider({children}: {children: React.ReactNode}) {
+  const {signIn} = AuthService();
   const [isAuthenticated, setIsAuthenticate] = useState(true);
 
   const {mutate, isLoading} = useMutation<SignUpParamsDTO, any>(
-    data => AuthService.signIn(data),
+    data => signIn(data),
     {
       onSuccess: ({accessToken}) => {
         HttpClient.defaults.headers.common.Authorization = `Bearer ${accessToken}`;

@@ -53,7 +53,8 @@ export function Screen({
   return (
     <KeyboardAvoidingView
       style={{flex: 1, backgroundColor: colors.background}}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      testID="screen-component">
       <Container backgroundColor={colors.background}>
         <Box
           flex={1}
@@ -83,7 +84,8 @@ export function Screen({
           style={[
             {paddingBottom: bottom, backgroundColor: colors.background},
             footerContainerStyle,
-          ]}>
+          ]}
+          testID="footer-component">
           {FooterComponent}
         </Box>
       )}

@@ -33,7 +33,8 @@ export function ScreenHeader({
       flexDirection="row"
       alignItems="center"
       justifyContent={title ? 'space-between' : 'flex-start'}
-      mb="s24">
+      mb="s24"
+      testID="screen-header-component">
       {canGoBack && renderBackButton()}
 
       {title && (

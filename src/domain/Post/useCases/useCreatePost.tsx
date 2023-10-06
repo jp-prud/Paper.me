@@ -1,6 +1,7 @@
+import {PostService} from '@services';
+
 import {MutationOptions, useMutation} from '@hooks';
 
-import PostService from '../../../services/PostService/PostService';
 import {CreatePostDTO} from '../Post.types';
 
 interface useCreatePostProps {
@@ -8,8 +9,10 @@ interface useCreatePostProps {
 }
 
 export function useCreatePost({options}: useCreatePostProps) {
+  const {create} = PostService();
+
   const {mutate, error, isLoading} = useMutation<CreatePostDTO, any>(
-    createPostDTO => PostService.create(createPostDTO),
+    createPostDTO => create(createPostDTO),
     options,
   );
 

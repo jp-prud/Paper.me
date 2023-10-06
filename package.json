@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@babel/preset-env": "^7.20.0",
+    "@babel/preset-env": "^7.22.20",
     "@babel/runtime": "^7.20.0",
     "@react-native-community/eslint-config": "^3.2.0",
     "@react-native/eslint-config": "^0.72.2",
@@ -46,7 +46,7 @@
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-native": "^12.2.2",
     "@tsconfig/react-native": "^3.0.2",
-    "@types/jest": "^29.5.3",
+    "@types/jest": "^29.5.5",
     "@types/react": "^18.2.20",
     "@types/react-native-htmlview": "^0.16.0",
     "@types/react-test-renderer": "^18.0.0",

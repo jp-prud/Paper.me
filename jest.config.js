@@ -14,14 +14,14 @@ module.exports = {
     '^@utils(.*)$': '<rootDir>/src/utils$1',
   },
   setupFiles: ['./jestSetupFile.js'],
-  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+  setupFilesAfterEnv: [
+    '@testing-library/jest-native/extend-expect',
+    './test/setup-env.js',
+  ],
   moduleDirectories: ['node_modules', './test'],
   modulePathIgnorePatterns: ['mocks', 'e2e/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverage: false,
-  collectCoverageFrom: [
-    'src/components/**/**/*.ts',
-    'src/components/**/**/*.tsx',
-  ],
+  collectCoverageFrom: ['**/*.{ts,tsx}'],
   coveragePathIgnorePatterns: ['/node_modules/', '/src/assets/', '/src/theme/'],
 };

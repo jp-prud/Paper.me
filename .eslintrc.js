@@ -9,10 +9,17 @@ module.exports = {
       {extensions: ['.js', '.jsx', '.ts', '.tsx']},
     ],
   },
+
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
       rules: {
+        'prettier/prettier': [
+          'error',
+          {
+            endOfLine: 'auto',
+          },
+        ],
         'import/order': [
           'error',
           {

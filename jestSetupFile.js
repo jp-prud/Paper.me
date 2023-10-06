@@ -17,6 +17,7 @@ export const mockedNavigate = jest.fn();
 
 jest.mock('@react-navigation/native', () => {
   return {
+    useScrollToTop: jest.fn(),
     useNavigation: () => {
       return {
         navigate: mockedNavigate,

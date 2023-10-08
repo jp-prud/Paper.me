@@ -1,9 +1,9 @@
 import {useCallback, useEffect, useState} from 'react';
 
-import {UserService} from '@services';
+import UserService from '../../../services/UserService/UserService';
 
 export function useGetUserData() {
-  const {me} = UserService();
+  // const {me} = UserService();
 
   const [userData, setUserData] = useState({} as any);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +13,7 @@ export function useGetUserData() {
     try {
       setIsLoading(true);
 
-      const response = await me();
+      const response = await UserService.me();
 
       setUserData(response);
     } catch (erro) {
@@ -23,7 +23,7 @@ export function useGetUserData() {
     } finally {
       setIsLoading(false);
     }
-  }, [me]);
+  }, []);
 
   useEffect(() => {
     getUserData();

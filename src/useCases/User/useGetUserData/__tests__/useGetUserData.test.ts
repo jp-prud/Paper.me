@@ -3,7 +3,7 @@ import {renderHook, act, waitFor, mockUser} from '@tests';
 import {useGetUserData} from '../useGetUserData';
 
 describe('UseGetUserData', () => {
-  it.skip('should seek user data and update correct states', async () => {
+  it('should seek user data and update correct states', async () => {
     const {result} = renderHook(() => useGetUserData());
 
     await act(async () => {

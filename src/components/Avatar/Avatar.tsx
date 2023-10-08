@@ -20,8 +20,8 @@ export function Avatar({size = 32, user}: AvatarProps) {
       backgroundColor="gray1"
       justifyContent="center"
       alignItems="center"
-      testID="avatar-component"                     >
-      <Box borderRadius="s32" overflow="hidden"           >
+      testID="avatar-component">
+      <Box borderRadius="s32" overflow="hidden">
         <Image
           source={{
             uri: avatar,

@@ -4,7 +4,7 @@ import {act, renderHook, waitFor} from '@tests';
 import {useHomeScreen} from '../useHomeScreen';
 
 describe('useHomeScreen', () => {
-  it.skip("should create 'homeContentRef' when hook is called", () => {
+  it("should create 'homeContentRef' when hook is called", () => {
     const {result} = renderHook(() => useHomeScreen());
 
     const {homeContentRef} = result.current;
@@ -12,7 +12,7 @@ describe('useHomeScreen', () => {
     expect(homeContentRef.current).toBeDefined();
   });
 
-  it.skip("should retrieve and update values from 'usePostList'", async () => {
+  it("should retrieve and update values from 'usePostList'", async () => {
     const {result} = renderHook(() => useHomeScreen());
 
     await act(async () => {

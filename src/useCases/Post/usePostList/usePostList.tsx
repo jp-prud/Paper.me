@@ -4,7 +4,7 @@ import {PostService} from '@services';
 import {PostProps} from '@types';
 
 export function usePostList() {
-  const {listAll} = PostService();
+  // const {listAll} = PostService();
 
   const [postList, setPostList] = useState<PostProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +12,7 @@ export function usePostList() {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await listAll();
+      const response = await PostService().listAll();
 
       setPostList(response);
     } catch (erro) {
@@ -22,7 +22,7 @@ export function usePostList() {
     } finally {
       setIsLoading(false);
     }
-  }, [listAll]);
+  }, []);
 
   useEffect(() => {
     fetchData();

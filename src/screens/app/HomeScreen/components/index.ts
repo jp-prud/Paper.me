@@ -1,4 +1,4 @@
 export * from './HomeHeader';
 export * from './HomeErrorPostList';
 export * from './HomeEmptyPostList';
-export * from './AddAPostFixedButton';
+export * from './AddPostFixedButton';

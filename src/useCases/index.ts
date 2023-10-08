@@ -6,4 +6,3 @@ export * from './Comment/useCases/useListCommentsByPost';
 export * from './Comment/useCases/useCreateComment';
 
 export * from './User/useCases/useGetUserData';
-

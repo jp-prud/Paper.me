@@ -1,4 +1,4 @@
-import {Text, Icon, TouchableOpacityBox} from '@components';
+import {Text, Icon, TouchableOpacityBox, Box} from '@components';
 
 export interface LinkStandAloneProps {
   text: string;
@@ -16,12 +16,17 @@ export function LinkStandAlone({
       onPress={onPress}
       flexDirection="row"
       alignItems="center"
-      gap="s4">
+      gap="s4"
+      testID="link-stand-alone">
       <Text semiBold color="teal600">
         {text}
       </Text>
 
-      {hasIcon && <Icon name="chevron" />}
+      {hasIcon && (
+        <Box testID="link-stand-alone-icon">
+          <Icon name="chevron" />
+        </Box>
+      )}
     </TouchableOpacityBox>
   );
 }

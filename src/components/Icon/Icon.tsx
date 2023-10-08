@@ -64,7 +64,7 @@ export function Icon({
 
   if (onPress) {
     return (
-      <Pressable hitSlop={10} onPress={onPress}>
+      <Pressable testID="Icon" hitSlop={10} onPress={onPress}>
         {Icon}
       </Pressable>
     );

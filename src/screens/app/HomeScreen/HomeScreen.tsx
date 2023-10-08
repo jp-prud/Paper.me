@@ -1,8 +1,6 @@
-import {useRef} from 'react';
-import {FlatList, ListRenderItemInfo} from 'react-native';
+import {FlatList, ListRenderItemInfo, ViewStyle} from 'react-native';
 
-import {PostProps} from '@domain';
-import {useScrollToTop} from '@react-navigation/native';
+import {PostProps} from '@types';
 
 import {Box, PostItem, RenderIfElse, Screen, Tabs, TitleBar} from '@components';
 import {AppScreenProps} from '@routes';
@@ -11,16 +9,13 @@ import {
   HomeHeader,
   HomeErrorPostList,
   HomeEmptyPostList,
-  AddAPostFixedButton,
+  AddPostFixedButton,
 } from './components';
 import {HomeHero} from './components/HomeHero';
 import {useHomeScreen} from './useHomeScreen';
 
 export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
-  const {postList, isLoading, error, refetch} = useHomeScreen();
-  const homeContentRef = useRef(null);
-
-  useScrollToTop(homeContentRef);
+  const {postList, isLoading, error, refetch, homeContentRef} = useHomeScreen();
 
   function renderPost({item}: ListRenderItemInfo<PostProps>) {
     return <PostItem post={item} />;
@@ -71,10 +66,8 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
     <Screen
       isLoading={isLoading}
       customHeader={<HomeHeader />}
-      FooterComponent={!isLoading && !error && <AddAPostFixedButton />}
-      footerContainerStyle={{
-        paddingBottom: 0,
-      }}>
+      FooterComponent={!isLoading && !error && <AddPostFixedButton />}
+      footerContainerStyle={$homeScreenStyleContainer}>
       <RenderIfElse
         condition={error}
         renderIf={<HomeErrorPostList refetch={refetch} />}
@@ -83,3 +76,7 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
     </Screen>
   );
 }
+
+const $homeScreenStyleContainer: ViewStyle = {
+  paddingBottom: 0,
+};

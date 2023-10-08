@@ -1,9 +1,6 @@
-import {fireEvent, render} from '../../../../test/test-utils';
-import {Icon, IconProps} from '../Icon';
+import {fireEvent, render} from '@tests';
 
-const iconMockWithoutPressFunction: IconProps = {
-  name: 'article',
-};
+import {Icon, IconProps} from '../Icon';
 
 const iconMock: IconProps = {
   name: 'article',
@@ -18,7 +15,7 @@ describe('Icon', () => {
   });
 
   it('should render the component without press function', () => {
-    const {getByTestId} = render(<Icon {...iconMockWithoutPressFunction} />);
+    const {getByTestId} = render(<Icon {...iconMock} />);
 
     const event = fireEvent.press(getByTestId('Icon'));
 

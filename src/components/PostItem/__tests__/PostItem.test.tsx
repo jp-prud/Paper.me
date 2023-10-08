@@ -1,6 +1,6 @@
+import {fireEvent, render} from '@tests';
 import {mockedNavigate} from 'jestSetupFile';
 
-import {fireEvent, render} from '../../../../test/test-utils';
 import {PostItem, PostItemProps} from '../PostItem';
 
 const postItemMock: PostItemProps = {

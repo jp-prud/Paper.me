@@ -1,1 +1,1 @@
-export * from './RichTextEditor'
+export * from './RichTextEditor';

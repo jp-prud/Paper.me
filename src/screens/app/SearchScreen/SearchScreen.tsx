@@ -1,4 +1,4 @@
-import {Box, Screen, Tabs, Text, TextInput, TitleBar} from '@components';
+import {Box, Screen, Tabs, TextInput, TitleBar} from '@components';
 import {AppScreenProps} from '@routes';
 
 import {CategoryItem, SearchPostItem} from './components';

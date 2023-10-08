@@ -4,8 +4,6 @@ import {PostService} from '@services';
 import {PostProps} from '@types';
 
 export function usePostList() {
-  // const {listAll} = PostService();
-
   const [postList, setPostList] = useState<PostProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);

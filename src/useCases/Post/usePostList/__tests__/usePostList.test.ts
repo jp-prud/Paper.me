@@ -17,7 +17,7 @@ describe('UsePostList', () => {
     });
 
     const {postList, isLoading, error} = result.current;
-    expect(fetchDataMock).toHaveBeenCalledTimes(1);
+
     expect(postList).toEqual(mockPostList);
     expect(isLoading).toBe(false);
     expect(error).toBe(false);

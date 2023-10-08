@@ -1,7 +1,7 @@
 import {useRef} from 'react';
 
-import {usePostList} from '@domain';
 import {useScrollToTop} from '@react-navigation/native';
+import {usePostList} from '@useCases';
 
 export function useHomeScreen() {
   const {error, isLoading, postList, refetch} = usePostList();

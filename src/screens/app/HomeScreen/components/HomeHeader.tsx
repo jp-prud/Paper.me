@@ -1,5 +1,5 @@
-import {useGetUserData} from '@domain';
 import {useNavigation} from '@react-navigation/native';
+import {useGetUserData} from '@useCases';
 
 import {Avatar, Box, Icon, Text, TouchableOpacityBox} from '@components';
 

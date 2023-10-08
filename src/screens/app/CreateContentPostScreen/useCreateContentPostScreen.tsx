@@ -1,8 +1,9 @@
 import {useCallback, useRef, useState} from 'react';
 
 import {useToastService} from '@context';
-import {CreatePostDTO, useCreatePost} from '@domain';
 import {useNavigation} from '@react-navigation/native';
+import {CreatePostDTO} from '@types';
+import {useCreatePost} from '@useCases';
 import {emptyContentPost} from '@utils';
 
 interface useCreateContentPostScreenProps {

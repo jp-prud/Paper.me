@@ -1,9 +1,9 @@
 import {Keyboard} from 'react-native';
 
 import {useToastService} from '@context';
-import {useCreateComment, useGetUserData} from '@domain';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {PostProps} from '@types';
+import {useCreateComment, useGetUserData} from '@useCases';
 import {useForm} from 'react-hook-form';
 
 import {

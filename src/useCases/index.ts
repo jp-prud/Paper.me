@@ -1,8 +1,8 @@
-export * from './Post/useCases/usePostList/usePostList';
-export * from './Post/useCases/useGetPostById';
-export * from './Post/useCases/useCreatePost';
+export * from './Post/usePostList/usePostList';
+export * from './Post/useGetPostById';
+export * from './Post/useCreatePost';
 
-export * from './Comment/useCases/useListCommentsByPost';
-export * from './Comment/useCases/useCreateComment';
+export * from './Comment/useListCommentsByPost';
+export * from './Comment/useCreateComment';
 
-export * from './User/useCases/useGetUserData';
+export * from './User/useGetUserData/useGetUserData';

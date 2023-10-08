@@ -12,6 +12,7 @@ module.exports = {
     '^@theme(.*)$': '<rootDir>/src/theme$1',
     '^@types(.*)$': '<rootDir>/src/types$1',
     '^@utils(.*)$': '<rootDir>/src/utils$1',
+    '^@useCases(.*)$': '<rootDir>/src/useCases$1',
   },
   setupFiles: ['./jestSetupFile.js'],
   setupFilesAfterEnv: [

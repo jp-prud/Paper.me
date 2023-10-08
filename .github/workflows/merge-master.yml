@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ^16
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+
+      - name: Run Jest tests
+        run: yarn test
+
+      - name: Run ESLint
+        run: yarn lint
+
+      - name: Simulate deployment
+        run: echo "Deploying to production..."

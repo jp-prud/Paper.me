@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ^16
+
+      - name: Install dependencies
+        run: yarn --frozen-lockfile --prefer-offline
+
+      - name: Run Jest tests
+        run: yarn test
+
+      - name: Run ESLint
+        run: yarn lint

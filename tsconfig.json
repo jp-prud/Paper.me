@@ -26,6 +26,7 @@
       "@services": ["src/services"],
       "@theme": ["src/theme"],
       "@types": ["src/types"],
+      "@useCases": ["src/useCases"],
       "@utils": ["src/utils"],
       "@tests": ["./test"]
     },

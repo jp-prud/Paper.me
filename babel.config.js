@@ -15,6 +15,7 @@ module.exports = {
           '@routes': './src/routes',
           '@screens': './src/screens',
           '@services': './src/services',
+          '@useCases': './src/useCases',
           '@tests': './test',
           '@theme': './src/theme',
           '@types': './src/types',

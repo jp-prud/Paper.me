@@ -1,4 +1,4 @@
-import {mockPostList} from 'test';
+import {act, mockPostList} from '@tests';
 
 import {PostService} from '../PostService';
 
@@ -7,7 +7,11 @@ describe('PostService', () => {
     it('when listAll is called, should be able to list all posts', async () => {
       const {listAll} = PostService();
 
-      const postListResponse = await listAll();
+      let postListResponse;
+
+      await act(async () => {
+        postListResponse = await listAll();
+      });
 
       expect(postListResponse).toEqual(mockPostList);
     });

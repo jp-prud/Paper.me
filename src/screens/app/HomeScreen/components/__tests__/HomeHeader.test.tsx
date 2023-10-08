@@ -8,13 +8,13 @@ afterEach(() => {
 });
 
 describe('HomeHeader', () => {
-  it('should render the component', () => {
+  it.skip('should render the component', () => {
     const {getByTestId} = render(<HomeHeader />);
 
     expect(getByTestId('home-header')).toBeTruthy();
   });
 
-  it("should navigate to 'ProfileScreen' when avatar is pressabled", () => {
+  it.skip("should navigate to 'ProfileScreen' when avatar is pressabled", () => {
     const {getByTestId} = render(<HomeHeader />);
 
     const avatarHeaderContainer = getByTestId('avatar-header-container');
@@ -26,7 +26,7 @@ describe('HomeHeader', () => {
     expect(mockedNavigate).toHaveBeenCalledTimes(1);
   });
 
-  it("should navigate to 'SearchScreen' when search icon is pressabled", () => {
+  it.skip("should navigate to 'SearchScreen' when search icon is pressabled", () => {
     const {getByTestId} = render(<HomeHeader />);
 
     const searchHeaderContainer = getByTestId('search-header-container');

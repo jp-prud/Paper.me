@@ -1,4 +1,4 @@
-import {fireEvent, render} from 'test/@tests';
+import {fireEvent, render} from '@tests';
 
 import {LinkStandAlone} from '../LinkStandAlone';
 

@@ -33,8 +33,13 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
 
-      - name: Run Jest tests
-        run: yarn test
-
       - name: Run ESLint
         run: yarn lint
+
+      - name: Comment with Test Coverage
+        uses: dkershner6/jest-coverage-commenter-action@v1
+        with:
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          test_command: 'yarn test:coverage'
+
+

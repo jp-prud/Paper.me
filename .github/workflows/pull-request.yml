@@ -22,8 +22,16 @@ jobs:
         with:
           node-version: ^16
 
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Install dependencies
-        run: yarn --frozen-lockfile --prefer-offline
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn --frozen-lockfile
 
       - name: Run Jest tests
         run: yarn test

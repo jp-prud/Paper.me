@@ -10,7 +10,7 @@ export function HomeEmptyPostList() {
   }
 
   return (
-    <Box>
+    <Box testID="home-empty-post-list">
       <Text textAlign="center">Nenhum post encontrado.</Text>
       <Box>
         <Text textAlign="center">Seja o primeiro a criar um post.</Text>

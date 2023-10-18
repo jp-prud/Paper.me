@@ -3,11 +3,12 @@ import {mockedNavigate} from 'jestSetupFile.js';
 
 import {AddPostFixedButton} from '../AddPostFixedButton';
 
-describe('AddPostFixedButton', () => {
+describe('AddPostFixedButton - unit', () => {
   it('should render the component', () => {
-    const {getByTestId} = render(<AddPostFixedButton />);
+    const {getByTestId, toJSON} = render(<AddPostFixedButton />);
 
-    expect(getByTestId('add-post-fixed-button')).toBeTruthy();
+    expect(getByTestId('add-post-fixed-button')).toBeDefined();
+    expect(toJSON()).toMatchSnapshot();
   });
 
   it("should navigate to 'PreviewPostScreen' when pressed", () => {

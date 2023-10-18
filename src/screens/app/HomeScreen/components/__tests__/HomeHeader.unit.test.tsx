@@ -7,11 +7,12 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('HomeHeader', () => {
+describe('HomeHeader - unit', () => {
   it('should render the component', () => {
-    const {getByTestId} = render(<HomeHeader />);
+    const {getByTestId, toJSON} = render(<HomeHeader />);
 
-    expect(getByTestId('home-header')).toBeTruthy();
+    expect(getByTestId('home-header')).toBeDefined();
+    expect(toJSON).toMatchSnapshot();
   });
 
   it("should navigate to 'ProfileScreen' when avatar is pressabled", () => {
@@ -21,7 +22,7 @@ describe('HomeHeader', () => {
 
     fireEvent.press(avatarHeaderContainer);
 
-    expect(avatarHeaderContainer).toBeTruthy();
+    expect(avatarHeaderContainer).toBeDefined();
     expect(mockedNavigate).toHaveBeenCalledWith('ProfileScreen');
     expect(mockedNavigate).toHaveBeenCalledTimes(1);
   });
@@ -33,7 +34,7 @@ describe('HomeHeader', () => {
 
     fireEvent.press(searchHeaderContainer);
 
-    expect(searchHeaderContainer).toBeTruthy();
+    expect(searchHeaderContainer).toBeDefined();
     expect(mockedNavigate).toHaveBeenCalledWith('SearchScreen');
     expect(mockedNavigate).toHaveBeenCalledTimes(1);
   });

@@ -8,7 +8,7 @@ function ScreenChildrenComponent() {
   return <Text>{componentMessage}</Text>;
 }
 
-describe('Screen component', () => {
+describe('<Screen />', () => {
   it('should render correctly component', () => {
     const {getByTestId} = renderCustomScreenComponent({
       children: <></>,

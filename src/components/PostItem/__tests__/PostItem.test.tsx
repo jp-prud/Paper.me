@@ -29,7 +29,7 @@ const postItemMock: PostItemProps = {
   },
 };
 
-describe('PostItem', () => {
+describe('<PostItem />', () => {
   describe('Post data was passed', () => {
     it('should render the component', () => {
       const {getByTestId} = render(<PostItem post={postItemMock.post} />);

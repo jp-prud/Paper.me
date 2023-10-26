@@ -2,7 +2,7 @@ import {fireEvent, render} from '@tests';
 
 import {LinkStandAlone} from '../LinkStandAlone';
 
-describe('LinkSantAlone', () => {
+describe('<LinkSantAlone />', () => {
   it('should render', () => {
     const {getByTestId} = render(
       <LinkStandAlone text="Ver mais" onPress={() => {}} />,

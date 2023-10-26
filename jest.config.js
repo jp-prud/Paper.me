@@ -23,6 +23,8 @@ module.exports = {
   modulePathIgnorePatterns: ['mocks', 'e2e/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverage: false,
-  collectCoverageFrom: ['**/*.{ts,tsx}'],
+  collectCoverageFrom: [
+    'src/{components,utils,hooks,services,screens}/**/*.{js,jsx,ts,tsx}',
+  ],
   coveragePathIgnorePatterns: ['/node_modules/', '/src/assets/', '/src/theme/'],
 };

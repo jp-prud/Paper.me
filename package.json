@@ -10,7 +10,8 @@
     "test": "jest --verbose",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --verbose --coverage -u",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "art:3333": "adb reverse tcp:3333 tcp:3333"
   },
   "husky": {
     "hooks": {

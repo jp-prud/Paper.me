@@ -10,6 +10,10 @@ export interface AvatarProps {
 }
 
 export function Avatar({size = 32, user}: AvatarProps) {
+  if (!user) {
+    return <></>;
+  }
+
   const {avatar, name} = user;
 
   return (

@@ -12,8 +12,8 @@ export function CommentService() {
   }
 
   async function create(
-    createCommentDTO: CreateCommentDTO,
     postId: PostProps['id'],
+    createCommentDTO: CreateCommentDTO,
   ) {
     const response = await HttpClient.post<CommentProps>(
       `/comments/${postId}`,

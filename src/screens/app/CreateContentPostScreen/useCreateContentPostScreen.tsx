@@ -44,6 +44,7 @@ export function useCreateContentPostScreen({
       navigation.navigate('HomeScreen');
     }, 1800);
   }
+
   function onPostError() {
     showToast({
       message: 'Erro ao criar post!',

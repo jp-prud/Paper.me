@@ -1,4 +1,9 @@
-import {FlatList, ListRenderItemInfo, ViewStyle} from 'react-native';
+import {
+  FlatList,
+  ListRenderItemInfo,
+  ViewStyle,
+  RefreshControl,
+} from 'react-native';
 
 import {PostProps} from '@types';
 
@@ -28,6 +33,9 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
   function renderHomeContent() {
     return (
       <FlatList
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={refetch} />
+        }
         data={postList}
         ref={homeContentRef}
         renderItem={renderPost}

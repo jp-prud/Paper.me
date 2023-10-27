@@ -2,6 +2,7 @@ export * from './ActivityIndicator/ActivityIndicator';
 export * from './Avatar/Avatar';
 export * from './Box/Box';
 export * from './Button/Button';
+export * from './FixedButton/FixedButton';
 export * from './Form/FormPasswordInput';
 export * from './Form/FormTextInput';
 export * from './PostItem/PostItem';

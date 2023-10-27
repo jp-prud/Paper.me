@@ -1,21 +1,19 @@
 import {FlatList, ListRenderItemInfo, ViewStyle} from 'react-native';
 
+import {useNavigation} from '@react-navigation/native';
 import {PostProps} from '@types';
+import {FixedButton} from 'src/components/FixedButton/FixedButton';
 
 import {Box, PostItem, RenderIfElse, Screen, Tabs, TitleBar} from '@components';
 import {AppScreenProps} from '@routes';
 
-import {
-  HomeHeader,
-  HomeErrorPostList,
-  HomeEmptyPostList,
-  AddPostFixedButton,
-} from './components';
+import {HomeHeader, HomeErrorPostList, HomeEmptyPostList} from './components';
 import {HomeHero} from './components/HomeHero';
 import {useHomeScreen} from './useHomeScreen';
 
 export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
   const {postList, isLoading, error, refetch, homeContentRef} = useHomeScreen();
+  const {navigate} = useNavigation();
 
   function renderPost({item}: ListRenderItemInfo<PostProps>) {
     return <PostItem post={item} />;
@@ -66,7 +64,15 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
     <Screen
       isLoading={isLoading}
       customHeader={<HomeHeader />}
-      FooterComponent={!isLoading && !error && <AddPostFixedButton />}
+      FooterComponent={
+        !isLoading &&
+        !error && (
+          <FixedButton
+            icon="pencil"
+            onPress={() => navigate('PreviewPostScreen')}
+          />
+        )
+      }
       footerContainerStyle={$homeScreenStyleContainer}>
       <RenderIfElse
         condition={error}

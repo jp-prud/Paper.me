@@ -1,24 +1,23 @@
 import {ViewStyle} from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
-
-import {Icon, TouchableOpacityBox, TouchableOpacityBoxProps} from '@components';
 import {$shadowProps} from '@theme';
 
-export function AddPostFixedButton() {
-  const {navigate} = useNavigation();
+import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box/Box';
+import {Icon, IconName} from '../Icon/Icon';
 
-  function handlePressNavigate() {
-    navigate('PreviewPostScreen');
-  }
+interface FixedButtonProps {
+  onPress: () => void;
+  icon: IconName;
+}
 
+export function FixedButton({icon, onPress}: FixedButtonProps) {
   return (
     <TouchableOpacityBox
-      testID="add-post-fixed-button"
-      onPress={handlePressNavigate}
+      testID="fixed-button"
+      onPress={onPress}
       {...$touchableContainerStyles}
       style={[$shadowProps, $fixedContainerStyle]}>
-      <Icon name="pencil" color="white" />
+      <Icon name={icon} color="white" />
     </TouchableOpacityBox>
   );
 }

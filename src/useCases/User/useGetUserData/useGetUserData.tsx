@@ -1,36 +1,18 @@
-import {useCallback, useEffect, useState} from 'react';
-
 import {UserService} from '@services';
+import {useQuery} from '@tanstack/react-query';
+import {QueryKeys} from '@types';
 
 export function useGetUserData() {
-  const [userData, setUserData] = useState({} as any);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const {me} = UserService();
 
-  const getUserData = useCallback(async () => {
-    try {
-      setIsLoading(true);
-
-      const response = await UserService().me();
-
-      setUserData(response);
-    } catch (erro) {
-      setError(true);
-
-      console.error(erro);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    getUserData();
-  }, [getUserData]);
+  const {data, isLoading, isError} = useQuery({
+    queryKey: [QueryKeys.UserMe],
+    queryFn: () => me(),
+  });
 
   return {
+    userData: data,
     isLoading,
-    error,
-    userData,
-    getUserData,
+    error: isError,
   };
 }

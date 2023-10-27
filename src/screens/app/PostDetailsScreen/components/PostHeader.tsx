@@ -6,7 +6,10 @@ import {formatRelative} from '@utils';
 import {Avatar, Box, Text, RenderIf} from '@components';
 
 interface PostHeaderProps {
-  post: Partial<PostProps>;
+  post: Pick<
+    PostProps,
+    'title' | 'subtitle' | 'description' | 'user' | 'createdAt' | 'thumbnail'
+  >;
   isLoading: boolean;
 }
 
@@ -58,7 +61,7 @@ export function PostHeader({post, isLoading}: PostHeaderProps) {
             letterSpacing={0.8}
             bold
             preset="paragraphCaption">
-            {user?.name}
+            {user.name}
           </Text>
 
           <Text color="gray2" preset="paragraphSmall">

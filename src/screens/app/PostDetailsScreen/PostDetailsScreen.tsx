@@ -19,17 +19,15 @@ export function PostDetailsScreen({
 
   const {post, isLoading, error} = usePostDetailsScreen(postId);
 
-  const {id, content, _count, likes} = post;
-
   function renderTabActionsBar() {
     return (
       <RenderIf
         condition={!error}
         children={
           <TabActionsBar
-            postId={id}
-            commentsQuantity={_count?.comments}
-            likesQuantity={likes}
+            postId={post?.id}
+            commentsQuantity={post?._count?.comments}
+            likesQuantity={post?.likes}
           />
         }
       />
@@ -44,7 +42,7 @@ export function PostDetailsScreen({
         <RenderHTML
           contentWidth={width}
           source={{
-            html: `<div>${content}</div>`,
+            html: `<div>${post?.content}</div>`,
           }}
           tagsStyles={$htmlElementStyles}
         />

@@ -1,24 +1,36 @@
 import {PostService} from '@services';
-import {CreatePostDTO} from '@types';
-
-import {MutationOptions, useMutation} from '@hooks';
+import {useMutation} from '@tanstack/react-query';
+import {CreatePostDTO, MutationOptions, PostProps} from '@types';
 
 interface useCreatePostProps {
-  options?: MutationOptions<void>;
+  options?: MutationOptions<PostProps>;
 }
 
 export function useCreatePost({options}: useCreatePostProps) {
   const {create} = PostService();
 
-  const {mutate, error, isLoading} = useMutation<CreatePostDTO, any>(
-    createPostDTO => create(createPostDTO),
-    options,
-  );
+  const {mutate, isPending, isError} = useMutation<
+    PostProps,
+    unknown,
+    CreatePostDTO
+  >({
+    mutationFn: createPostDTO => create(createPostDTO),
+    onSuccess: data => {
+      if (options?.onSuccess) {
+        options.onSuccess(data);
+      }
+    },
+    onError: () => {
+      if (options?.onError) {
+        options.onError(options?.errorMessage || 'Ocorreu um erro inesperado!');
+      }
+    },
+  });
 
   async function createPost(createPostDTO: CreatePostDTO) {
     const {title, subtitle, content, description, thumbnail} = createPostDTO;
 
-    await mutate({
+    mutate({
       title,
       subtitle,
       content,
@@ -31,7 +43,7 @@ export function useCreatePost({options}: useCreatePostProps) {
 
   return {
     createPost,
-    error,
-    isLoading,
+    error: isError,
+    isLoading: isPending,
   };
 }

@@ -10,20 +10,16 @@ import {useFixedCommentSection} from './useFixedCommentSection';
 
 interface FixedCommentSectionProps {
   postId: string;
-  onAddComment: () => void;
 }
 
-export function FixedCommentSection({
-  postId,
-  onAddComment,
-}: FixedCommentSectionProps) {
+export function FixedCommentSection({postId}: FixedCommentSectionProps) {
   const {
     control,
     dirtyFields,
     handleSubmit,
     handleClickCreateComment,
     userData,
-  } = useFixedCommentSection(postId, onAddComment);
+  } = useFixedCommentSection(postId);
 
   function renderRightComponent() {
     return (

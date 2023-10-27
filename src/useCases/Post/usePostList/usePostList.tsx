@@ -1,36 +1,19 @@
-import {useCallback, useEffect, useState} from 'react';
-
 import {PostService} from '@services';
-import {PostProps} from '@types';
+import {useQuery} from '@tanstack/react-query';
 
 export function usePostList() {
-  const [postList, setPostList] = useState<PostProps[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const {listAll} = PostService();
 
-  const fetchData = useCallback(async () => {
-    try {
-      const response = await PostService().listAll();
-
-      setPostList(response);
-    } catch (erro) {
-      setError(true);
-
-      console.error(erro);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+  const {data, isFetching, isLoading, isError, refetch} = useQuery({
+    queryKey: ['postList'],
+    queryFn: listAll,
+    staleTime: 1000 * 60, // 1 minute
+  });
 
   return {
-    postList,
-    isLoading,
-    error,
-    refetch: fetchData,
-    fetchData,
+    postList: data,
+    isLoading: isLoading || isFetching,
+    error: isError,
+    refetch,
   };
 }

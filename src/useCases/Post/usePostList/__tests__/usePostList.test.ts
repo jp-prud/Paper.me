@@ -1,15 +1,17 @@
-import {waitFor, renderHook, act, mockPostList} from '@tests';
+import {waitFor, renderHook, act, mockPostList, AllTheProviders} from '@tests';
 
 import {usePostList} from '../usePostList';
 
 describe('UsePostList', () => {
   it('should seek postList and update correct states', async () => {
-    const {result} = renderHook(() => usePostList());
+    const {result} = renderHook(() => usePostList(), {
+      wrapper: AllTheProviders,
+    });
 
-    const fetchDataMock = jest.spyOn(result.current, 'fetchData');
+    const fetchDataMock = jest.spyOn(result.current, 'refetch');
 
     await act(async () => {
-      await result.current.fetchData();
+      await result.current.refetch();
     });
 
     await waitFor(() => {
@@ -24,7 +26,9 @@ describe('UsePostList', () => {
   });
 
   it('should refetch data when call refetchData', async () => {
-    const {result} = renderHook(() => usePostList());
+    const {result} = renderHook(() => usePostList(), {
+      wrapper: AllTheProviders,
+    });
 
     const refetchDataMock = jest.spyOn(result.current, 'refetch');
 

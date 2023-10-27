@@ -1,37 +1,19 @@
-import {useCallback, useEffect, useState} from 'react';
-
 import {CommentService} from '@services';
-import {CommentProps, PostProps} from '@types';
+import {useQuery} from '@tanstack/react-query';
+import {PostProps, QueryKeys} from '@types';
 
 export function useListCommentsByPost(postId: PostProps['id']) {
   const {getCommentsByPost} = CommentService();
 
-  const [commentsList, setCommentsList] = useState<CommentProps[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  const getCommentsList = useCallback(async () => {
-    try {
-      const data = await getCommentsByPost(postId);
-
-      setCommentsList(data);
-    } catch (erro) {
-      console.error(erro);
-
-      setError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [postId, getCommentsByPost]);
-
-  useEffect(() => {
-    getCommentsList();
-  }, [getCommentsList]);
+  const {data, isLoading, isFetching, isError, refetch} = useQuery({
+    queryKey: [QueryKeys.ListCommentsByPost, postId],
+    queryFn: () => getCommentsByPost(postId),
+  });
 
   return {
-    refetch: getCommentsList,
-    commentsList,
-    isLoading,
-    error,
+    refetch,
+    commentsList: data,
+    isLoading: isLoading || isFetching,
+    isError,
   };
 }

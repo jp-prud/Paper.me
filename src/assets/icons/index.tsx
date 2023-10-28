@@ -1,3 +1,4 @@
+export {AddIcon} from './AddIcon';
 export {ArrowIcon} from './ArrowIcon';
 export {ArticleIcon} from './ArticleIcon';
 export {BellIcon} from './BellIcon';

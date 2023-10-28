@@ -15,7 +15,10 @@ export type AppStackParamList = {
   HomeScreen: undefined;
   ProfileScreen: undefined;
   SearchScreen: undefined;
-  ListScreen: undefined;
+  FavoriteScreen: undefined;
+  FavoriteDetailsListScreen: {
+    favoriteListId: string;
+  };
   CategoryScreen: {
     categoryId: CategoryProps['id'];
   };
@@ -34,7 +37,7 @@ export type AppStackParamList = {
 export type AppTabNavigatorParamList = {
   HomeScreen: undefined;
   SearchScreen: undefined;
-  ListScreen: undefined;
+  FavoriteScreen: undefined;
   ProfileScreen: undefined;
 };
 

@@ -10,6 +10,7 @@ import {
   CategoryScreen,
   PreviewPostScreen,
   CreateContentPostScreen,
+  FavoriteDetailsListScreen,
 } from '../screens';
 
 import {
@@ -34,6 +35,10 @@ export function AppStackScreen() {
       <Screen
         name="CreateContentPostScreen"
         component={CreateContentPostScreen}
+      />
+      <Screen
+        name="FavoriteDetailsListScreen"
+        component={FavoriteDetailsListScreen}
       />
       <Screen name="ProfileScreen" component={ProfileScreen} />
       <Screen name="CategoryScreen" component={CategoryScreen} />

@@ -4,6 +4,7 @@ import {useAppTheme} from '@hooks';
 import {ThemeColors} from '@theme';
 
 import {
+  AddIcon,
   ArrowIcon,
   ArticleIcon,
   BellIcon,
@@ -76,6 +77,7 @@ export function Icon({
 }
 
 const iconRegistry = {
+  add: AddIcon,
   arrow: ArrowIcon,
   article: ArticleIcon,
   bell: BellIcon,

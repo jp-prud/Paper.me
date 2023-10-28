@@ -2,9 +2,16 @@ import {FlatList, ListRenderItemInfo, ViewStyle} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 import {PostProps} from '@types';
-import {FixedButton} from 'src/components/FixedButton/FixedButton';
 
-import {Box, PostItem, RenderIfElse, Screen, Tabs, TitleBar} from '@components';
+import {
+  Box,
+  PostItem,
+  RenderIfElse,
+  Screen,
+  Tabs,
+  TitleBar,
+  FixedButton,
+} from '@components';
 import {AppScreenProps} from '@routes';
 
 import {HomeHeader, HomeErrorPostList, HomeEmptyPostList} from './components';

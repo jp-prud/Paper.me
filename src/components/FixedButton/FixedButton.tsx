@@ -15,6 +15,7 @@ export function FixedButton({icon, onPress}: FixedButtonProps) {
     <TouchableOpacityBox
       testID="fixed-button"
       onPress={onPress}
+      activeOpacity={0.7}
       {...$touchableContainerStyles}
       style={[$shadowProps, $fixedContainerStyle]}>
       <Icon name={icon} color="white" />

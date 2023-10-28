@@ -19,7 +19,7 @@ export const mappedScreensToProps: Record<
       unfocused: 'search',
     },
   },
-  ListScreen: {
+  FavoriteScreen: {
     label: 'Favoritos',
     icon: {
       focused: 'favorite',

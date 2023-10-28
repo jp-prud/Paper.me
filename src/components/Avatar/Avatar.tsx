@@ -10,6 +10,10 @@ export interface AvatarProps {
 }
 
 export function Avatar({size = 32, user}: AvatarProps) {
+  if (!user) {
+    return null;
+  }
+
   const {avatar, name} = user;
 
   return (
@@ -24,7 +28,9 @@ export function Avatar({size = 32, user}: AvatarProps) {
       <Box borderRadius="s32" overflow="hidden">
         <Image
           source={{
-            uri: avatar,
+            uri:
+              avatar ||
+              'https://pbs.twimg.com/profile_images/1702473435941650433/7G7mQnBt_normal.jpg',
           }}
           alt={name}
           width={size}

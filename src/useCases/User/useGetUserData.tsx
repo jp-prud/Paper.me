@@ -5,14 +5,17 @@ import {QueryKeys} from '@types';
 export function useGetUserData() {
   const {me} = UserService();
 
-  const {data, isLoading, isError} = useQuery({
+  const {data, isLoading, isSuccess, isError} = useQuery({
     queryKey: [QueryKeys.UserMe],
     queryFn: () => me(),
+    retry: false,
+    staleTime: 1000 * 60, // 1 minute
   });
 
   return {
     userData: data,
     isLoading,
-    error: isError,
+    isError,
+    isSuccess,
   };
 }

@@ -1,5 +1,4 @@
-import {fireEvent, render} from '@tests';
-import {mockedNavigate} from 'jestSetupFile.js';
+import {fireEvent, render, mockedNavigate} from '@tests';
 
 import {AddPostFixedButton} from '../AddPostFixedButton';
 

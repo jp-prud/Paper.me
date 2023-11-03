@@ -4,7 +4,7 @@ import {useScrollToTop} from '@react-navigation/native';
 import {usePostList} from '@useCases';
 
 export function useHomeScreen() {
-  const {error, isLoading, postList, refetch} = usePostList();
+  const {isError, isLoading, postList, refetch} = usePostList();
 
   const homeContentRef = useRef(null);
 
@@ -12,7 +12,7 @@ export function useHomeScreen() {
 
   return {
     refetch,
-    error,
+    isError,
     isLoading,
     postList,
     homeContentRef,

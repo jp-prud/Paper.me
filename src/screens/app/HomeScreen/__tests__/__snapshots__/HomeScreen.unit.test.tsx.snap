@@ -1,17 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomeScreen - unit should render the componet 1`] = `
-<RNCSafeAreaProvider
-  onInsetsChange={[Function]}
-  style={
-    [
-      {
-        "flex": 1,
-      },
-      undefined,
-    ]
-  }
->
+[
   <View
     onLayout={[Function]}
     style={
@@ -71,6 +61,7 @@ exports[`HomeScreen - unit should render the componet 1`] = `
         </View>
       </View>
     </View>
-  </View>
-</RNCSafeAreaProvider>
+  </View>,
+  " ",
+]
 `;

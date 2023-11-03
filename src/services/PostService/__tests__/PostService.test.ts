@@ -1,4 +1,4 @@
-import {act, mockPostList} from '@tests';
+import {act, postListMock} from '@tests';
 
 import {PostService} from '../PostService';
 
@@ -13,7 +13,7 @@ describe('PostService', () => {
         postListResponse = await listAll();
       });
 
-      expect(postListResponse).toEqual(mockPostList);
+      expect(postListResponse).toEqual(postListMock);
     });
 
     it.todo('should throw an error when the request fails');

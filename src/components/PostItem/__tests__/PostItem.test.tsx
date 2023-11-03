@@ -1,5 +1,4 @@
-import {fireEvent, render} from '@tests';
-import {mockedNavigate} from 'jestSetupFile';
+import {fireEvent, render, mockedNavigate} from '@tests';
 
 import {PostItem, PostItemProps} from '../PostItem';
 

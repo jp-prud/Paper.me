@@ -17,12 +17,12 @@ export function PostDetailsScreen({
   const {postId} = route.params;
   const {width} = useWindowDimensions();
 
-  const {post, isLoading, error} = usePostDetailsScreen(postId);
+  const {post, isLoading, isError} = usePostDetailsScreen(postId);
 
   function renderTabActionsBar() {
     return (
       <RenderIf
-        condition={!error}
+        condition={!isError}
         children={
           <TabActionsBar
             postId={post?.id}
@@ -60,8 +60,8 @@ export function PostDetailsScreen({
       FooterComponent={renderTabActionsBar()}
       footerContainerStyle={[$shadowProps, {paddingBottom: 0}]}>
       <RenderIfElse
-        condition={error && !isLoading}
-        renderIf={<Text preset="paragraphLarge">Error</Text>}
+        condition={isError && !isLoading}
+        renderIf={<Text preset="paragraphLarge">isError</Text>}
         renderElse={renderPostDetails()}
       />
     </Screen>

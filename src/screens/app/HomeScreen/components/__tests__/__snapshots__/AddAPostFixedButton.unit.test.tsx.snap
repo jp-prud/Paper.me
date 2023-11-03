@@ -1,17 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddPostFixedButton - unit should render the component 1`] = `
-<RNCSafeAreaProvider
-  onInsetsChange={[Function]}
-  style={
-    [
-      {
-        "flex": 1,
-      },
-      undefined,
-    ]
-  }
->
+[
   <View
     accessibilityState={
       {
@@ -196,6 +186,7 @@ exports[`AddPostFixedButton - unit should render the component 1`] = `
         </RNSVGGroup>
       </RNSVGSvgView>
     </View>
-  </View>
-</RNCSafeAreaProvider>
+  </View>,
+  " ",
+]
 `;

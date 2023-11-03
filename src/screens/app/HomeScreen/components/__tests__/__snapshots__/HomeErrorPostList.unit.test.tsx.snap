@@ -1,17 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomeErrorPostList - unit should render the component 1`] = `
-<RNCSafeAreaProvider
-  onInsetsChange={[Function]}
-  style={
-    [
-      {
-        "flex": 1,
-      },
-      undefined,
-    ]
-  }
->
+[
   <View
     style={
       [
@@ -143,6 +133,7 @@ exports[`HomeErrorPostList - unit should render the component 1`] = `
         Tentar novamente
       </Text>
     </View>
-  </View>
-</RNCSafeAreaProvider>
+  </View>,
+  " ",
+]
 `;

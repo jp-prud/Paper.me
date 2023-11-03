@@ -3,7 +3,7 @@ import {CommentProps, CreateCommentDTO, PostProps} from '@types';
 import {HttpClient} from '../utils/HttpClient';
 
 export function CommentService() {
-  async function getCommentsByPost(postId: PostProps['id']) {
+  async function listByPost(postId: PostProps['id']) {
     const response = await HttpClient.get<CommentProps[]>(
       `/comments/${postId}`,
     );
@@ -24,7 +24,7 @@ export function CommentService() {
   }
 
   return {
-    getCommentsByPost,
+    listByPost,
     create,
   };
 }

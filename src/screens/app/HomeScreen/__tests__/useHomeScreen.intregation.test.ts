@@ -1,4 +1,4 @@
-import {mockPostList} from '@tests';
+import {postListMock} from '@tests';
 import {act, renderHook, waitFor} from '@tests';
 
 import {useHomeScreen} from '../useHomeScreen';
@@ -21,10 +21,10 @@ describe('useHomeScreen', () => {
       });
     });
 
-    const {postList, isLoading, error} = result.current;
+    const {postList, isLoading, isError} = result.current;
 
-    expect(postList).toEqual(mockPostList);
+    expect(postList).toEqual(postListMock);
     expect(isLoading).toBe(false);
-    expect(error).toBe(false);
+    expect(isError).toBe(false);
   });
 });

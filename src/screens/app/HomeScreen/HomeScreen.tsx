@@ -20,7 +20,8 @@ import {HomeHero} from './components/HomeHero';
 import {useHomeScreen} from './useHomeScreen';
 
 export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
-  const {postList, isLoading, error, refetch, homeContentRef} = useHomeScreen();
+  const {postList, isLoading, isError, refetch, homeContentRef} =
+    useHomeScreen();
 
   function renderPost({item}: ListRenderItemInfo<PostProps>) {
     return <PostItem post={item} />;
@@ -74,10 +75,10 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
     <Screen
       isLoading={isLoading}
       customHeader={<HomeHeader />}
-      FooterComponent={!isLoading && !error && <AddPostFixedButton />}
+      FooterComponent={!isLoading && !isError && <AddPostFixedButton />}
       footerContainerStyle={$homeScreenStyleContainer}>
       <RenderIfElse
-        condition={error}
+        condition={isError}
         renderIf={<HomeErrorPostList refetch={refetch} />}
         renderElse={renderHomeContent()}
       />

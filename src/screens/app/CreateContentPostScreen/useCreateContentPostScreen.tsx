@@ -7,7 +7,7 @@ import {useCreatePost} from '@useCases';
 import {emptyContentPost} from '@utils';
 
 interface useCreateContentPostScreenProps {
-  post: CreatePostDTO;
+  post: Omit<CreatePostDTO, 'content'>;
 }
 
 export function useCreateContentPostScreen({
@@ -18,11 +18,9 @@ export function useCreateContentPostScreen({
 
   const navigation = useNavigation();
 
-  const {createPost, error, isLoading} = useCreatePost({
-    options: {
-      onError: onPostError,
-      onSuccess: onPostCreated,
-    },
+  const {createPost, isError, isLoading} = useCreatePost({
+    onError: onPostError,
+    onSuccess: onPostCreated,
   });
 
   const {showToast, hideToast} = useToastService();
@@ -60,7 +58,7 @@ export function useCreateContentPostScreen({
       showToast({
         message: 'O conteúdo do post não pode ser vazio!',
         position: 'top',
-        type: 'error',
+        type: 'info',
       });
 
       setTimeout(() => hideToast(), 1800);
@@ -81,7 +79,7 @@ export function useCreateContentPostScreen({
     articleContent,
     handleChangeArticleContent,
     handlePressCreatePost,
-    error,
+    isError,
     isLoading,
   };
 }

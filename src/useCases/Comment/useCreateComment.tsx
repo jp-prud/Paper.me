@@ -16,12 +16,13 @@ export function useCreateComment(
 
   const queryClient = useQueryClient();
 
-  const {mutate, isPending, isError} = useMutation<
+  const {mutate, isPending, isError, isSuccess} = useMutation<
     CommentProps,
     unknown,
     CreateCommentDTO
   >({
     mutationFn: createCommentDTO => create(postId, createCommentDTO),
+    retry: false,
     onSuccess: data => {
       queryClient.invalidateQueries({
         queryKey: [QueryKeys.ListCommentsByPost, postId],
@@ -33,7 +34,9 @@ export function useCreateComment(
     },
     onError: () => {
       if (options?.onError) {
-        options.onError(options?.errorMessage || 'Ocorreu um erro inesperado!');
+        options.onError(
+          options?.errorMessage || "The comment couldn't be created!",
+        );
       }
     },
   });
@@ -46,6 +49,7 @@ export function useCreateComment(
 
   return {
     createComment,
+    isSuccess,
     isLoading: isPending,
     isError,
   };

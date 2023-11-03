@@ -1,15 +1,14 @@
+import {UserProps} from './User';
+
 export interface CommentProps {
-  id: number;
-  postId: number;
-  userId: number;
+  id: string;
+  postId: string;
+  userId: string;
   content: string;
+  likes: number;
   createdAt: string;
   updatedAt: string;
-  likes: number;
-  user: {
-    name: string;
-    avatar: string;
-  };
+  user: Pick<UserProps, 'name' | 'avatar'>;
 }
 
 export interface CreateCommentDTO {

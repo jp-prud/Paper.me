@@ -28,7 +28,7 @@
       "@types": ["src/types"],
       "@useCases": ["src/useCases"],
       "@utils": ["src/utils"],
-      "@tests": ["./test"]
+      "@tests": ["src/test"]
     },
   },
   "exclude": [

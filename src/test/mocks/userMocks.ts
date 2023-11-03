@@ -1,6 +1,6 @@
 import {UserProps} from '@types';
 
-export const mockUser: UserProps = {
+export const userMock: UserProps = {
   id: '7856bd2d-e559-4e74-9b31-5bf231f8deb5',
   createdAt: '2023-08-24T04:34:25.590Z',
   name: 'Takeoff',

@@ -1,6 +1,6 @@
 import {PostProps} from '@types';
 
-export const mockPostList: PostProps[] = [
+export const postListMock: PostProps[] = [
   {
     id: 'cc9338bd-e464-4680-a150-bf21cfd231b9',
     userId: 'af52feda-1e78-488c-9ce8-9d115a071dfa',

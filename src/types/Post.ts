@@ -25,10 +25,13 @@ export interface PostProps {
 
 export interface PostResumeProps {}
 
-export interface CreatePostDTO {
-  title: string;
-  subtitle: string;
-  content: string;
-  description: string;
-  thumbnail?: string;
-}
+export type CreatePostDTO = Pick<
+  PostProps,
+  | 'title'
+  | 'subtitle'
+  | 'content'
+  | 'description'
+  | 'thumbnail'
+  | 'published'
+  | 'type'
+>;

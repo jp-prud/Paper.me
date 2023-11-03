@@ -1,5 +1,4 @@
-import {fireEvent, render} from '@tests';
-import {mockedNavigate} from 'jestSetupFile';
+import {fireEvent, render, mockedNavigate} from '@tests';
 
 import {PostItem, PostItemProps} from '../PostItem';
 
@@ -29,7 +28,7 @@ const postItemMock: PostItemProps = {
   },
 };
 
-describe('PostItem', () => {
+describe('<PostItem />', () => {
   describe('Post data was passed', () => {
     it('should render the component', () => {
       const {getByTestId} = render(<PostItem post={postItemMock.post} />);

@@ -1,0 +1,1 @@
+export {renderCustomScreenComponent} from './renderCustomScreenComponent';

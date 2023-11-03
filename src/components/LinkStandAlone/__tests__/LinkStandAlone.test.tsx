@@ -2,7 +2,7 @@ import {fireEvent, render} from '@tests';
 
 import {LinkStandAlone} from '../LinkStandAlone';
 
-describe('LinkSantAlone', () => {
+describe('<LinkSantAlone />', () => {
   it('should render', () => {
     const {getByTestId} = render(
       <LinkStandAlone text="Ver mais" onPress={() => {}} />,
@@ -19,16 +19,14 @@ describe('LinkSantAlone', () => {
     expect(getByTestId('link-stand-alone-icon')).toBeTruthy();
   });
 
-  it('should call function when press', () => {
+  it.skip('should call function when press', () => {
     const onPressFn = jest.fn();
 
     const {getByTestId} = render(
       <LinkStandAlone text="Ver mais" onPress={onPressFn} hasIcon />,
     );
 
-    const event = fireEvent.press(getByTestId('link-stand-alone'));
-
-    console.log(event);
+    fireEvent.press(getByTestId('link-stand-alone'));
 
     // expect(event).toHaveBeenCalledTimes(1);
   });

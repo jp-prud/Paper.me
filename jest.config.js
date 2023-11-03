@@ -14,15 +14,20 @@ module.exports = {
     '^@utils(.*)$': '<rootDir>/src/utils$1',
     '^@useCases(.*)$': '<rootDir>/src/useCases$1',
   },
-  setupFiles: ['./jestSetupFile.js'],
+  setupFiles: ['<rootDir>/src/test/jestSetup.ts'],
   setupFilesAfterEnv: [
     '@testing-library/jest-native/extend-expect',
-    './test/setup-env.js',
+    '<rootDir>/src/test/setup-env.ts',
   ],
   moduleDirectories: ['node_modules', './test'],
   modulePathIgnorePatterns: ['mocks', 'e2e/'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   collectCoverage: false,
-  collectCoverageFrom: ['**/*.{ts,tsx}'],
+  transformIgnorePatterns: [
+    'node_modules/(?!((jest-)?react-native|@react-native(-community)?|react-native-safe-area-context)/)',
+  ],
+  collectCoverageFrom: [
+    'src/{components,utils,hooks,services,screens,useCases}/**/*.{js,jsx,ts,tsx}',
+  ],
   coveragePathIgnorePatterns: ['/node_modules/', '/src/assets/', '/src/theme/'],
 };

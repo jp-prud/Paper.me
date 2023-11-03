@@ -11,10 +11,7 @@ import {
   NewCommentFormSchema,
 } from '../newCommentFormSchema';
 
-export function useFixedCommentSection(
-  postId: PostProps['id'],
-  onAddComment: () => void,
-) {
+export function useFixedCommentSection(postId: PostProps['id']) {
   const {createComment} = useCreateComment(postId, {
     onSuccess: onCommentCreated,
   });
@@ -44,7 +41,6 @@ export function useFixedCommentSection(
   function onCommentCreated() {
     Keyboard.dismiss();
     reset();
-    onAddComment();
     showToast({
       message: 'Comentário adicionado com sucesso!',
     });

@@ -4,7 +4,7 @@ import {
   NativeStackNavigationOptions,
   NativeStackScreenProps,
 } from '@react-navigation/native-stack';
-import {CategoryProps, PostProps} from '@types';
+import {CategoryProps, CreatePostDTO, PostProps} from '@types';
 
 export type AuthStackParamList = {
   SignInScreen: undefined;
@@ -27,7 +27,7 @@ export type AppStackParamList = {
   };
   PreviewPostScreen: undefined;
   CreateContentPostScreen: {
-    post: Pick<PostProps, 'title' | 'subtitle' | 'thumbnail' | 'description'>;
+    post: Omit<CreatePostDTO, 'content'>;
   };
 };
 

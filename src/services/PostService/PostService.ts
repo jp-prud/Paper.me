@@ -6,10 +6,6 @@ export function PostService() {
   async function listAll() {
     const response = await HttpClient.get<PostProps[]>('posts');
 
-    if (response.status !== 200) {
-      throw new Error('Error on list posts');
-    }
-
     return response.data;
   }
 

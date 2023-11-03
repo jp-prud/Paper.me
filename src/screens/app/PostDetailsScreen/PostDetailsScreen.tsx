@@ -17,19 +17,17 @@ export function PostDetailsScreen({
   const {postId} = route.params;
   const {width} = useWindowDimensions();
 
-  const {post, isLoading, error} = usePostDetailsScreen(postId);
-
-  const {id, content, _count, likes} = post;
+  const {post, isLoading, isError} = usePostDetailsScreen(postId);
 
   function renderTabActionsBar() {
     return (
       <RenderIf
-        condition={!error}
+        condition={!isError}
         children={
           <TabActionsBar
-            postId={id}
-            commentsQuantity={_count?.comments}
-            likesQuantity={likes}
+            postId={post?.id}
+            commentsQuantity={post?._count?.comments}
+            likesQuantity={post?.likes}
           />
         }
       />
@@ -44,7 +42,7 @@ export function PostDetailsScreen({
         <RenderHTML
           contentWidth={width}
           source={{
-            html: `<div>${content}</div>`,
+            html: `<div>${post?.content}</div>`,
           }}
           tagsStyles={$htmlElementStyles}
         />
@@ -62,8 +60,8 @@ export function PostDetailsScreen({
       FooterComponent={renderTabActionsBar()}
       footerContainerStyle={[$shadowProps, {paddingBottom: 0}]}>
       <RenderIfElse
-        condition={error && !isLoading}
-        renderIf={<Text preset="paragraphLarge">Error</Text>}
+        condition={isError && !isLoading}
+        renderIf={<Text preset="paragraphLarge">isError</Text>}
         renderElse={renderPostDetails()}
       />
     </Screen>

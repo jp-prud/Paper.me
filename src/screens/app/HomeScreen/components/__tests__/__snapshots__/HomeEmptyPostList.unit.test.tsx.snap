@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeEmptyPostList - unit should render the component 1`] = `
+[
+  <View
+    style={
+      [
+        {},
+      ]
+    }
+    testID="home-empty-post-list"
+  >
+    <Text
+      selectionColor="#c7e7ea"
+      style={
+        [
+          {
+            "color": "#262626",
+            "textAlign": "center",
+          },
+          [
+            {
+              "fontSize": 16,
+              "lineHeight": 22.4,
+            },
+            {
+              "fontFamily": "PlusJakartaSans-Regular",
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      Nenhum post encontrado.
+    </Text>
+    <View
+      style={
+        [
+          {},
+        ]
+      }
+    >
+      <Text
+        selectionColor="#c7e7ea"
+        style={
+          [
+            {
+              "color": "#262626",
+              "textAlign": "center",
+            },
+            [
+              {
+                "fontSize": 16,
+                "lineHeight": 22.4,
+              },
+              {
+                "fontFamily": "PlusJakartaSans-Regular",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Seja o primeiro a criar um post.
+      </Text>
+      <View
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "backgroundColor": "#017582",
+            "borderRadius": 16,
+            "height": 50,
+            "justifyContent": "center",
+            "opacity": 1,
+            "paddingHorizontal": 20,
+          }
+        }
+      >
+        <Text
+          selectionColor="#c7e7ea"
+          style={
+            [
+              {
+                "color": "#FFFFFF",
+              },
+              [
+                {
+                  "fontSize": 16,
+                  "lineHeight": 22.4,
+                },
+                {
+                  "fontFamily": "PlusJakartaSans-Bold",
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          Criar post
+        </Text>
+      </View>
+    </View>
+  </View>,
+  " ",
+]
+`;

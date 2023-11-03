@@ -1,4 +1,4 @@
-import {act, mockUser} from '@tests';
+import {act, userMock} from '@tests';
 
 import {UserService} from '../UserService';
 
@@ -13,7 +13,7 @@ describe('UserService', () => {
         userResponse = await me();
       });
 
-      expect(userResponse).toEqual(mockUser);
+      expect(userResponse).toEqual(userMock);
     });
 
     it.todo('should throw an error when the request fails');

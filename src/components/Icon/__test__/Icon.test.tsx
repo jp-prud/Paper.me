@@ -7,7 +7,7 @@ const iconMock: IconProps = {
   onPress: jest.fn(),
 };
 
-describe('Icon', () => {
+describe('<Icon />', () => {
   it.skip('should render the component', () => {
     const {getByTestId} = render(<Icon {...iconMock} />);
 

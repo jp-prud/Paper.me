@@ -2,7 +2,7 @@ import {render} from '@tests';
 
 import {TitleBar} from '../TitleBar';
 
-describe('TitleBar', () => {
+describe('<TitleBar />', () => {
   it('should render when data has passed', () => {
     const {getByTestId} = render(<TitleBar title="Title Bar" />);
 

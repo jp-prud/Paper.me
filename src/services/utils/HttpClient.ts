@@ -6,6 +6,6 @@ export const HttpClient = axios.create({
   baseURL: BASE_URL,
   headers: {
     Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ODU2YmQyZC1lNTU5LTRlNzQtOWIzMS01YmYyMzFmOGRlYjUiLCJpYXQiOjE2OTYzNjI1MTUsImV4cCI6MTY5Njk2NzMxNX0.95oROsZqBfuVRUTPc_4BRI82c42jM0x8_Ez-VGauVf0',
+      'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3ODU2YmQyZC1lNTU5LTRlNzQtOWIzMS01YmYyMzFmOGRlYjUiLCJpYXQiOjE2OTg0NDgxNDUsImV4cCI6MTY5OTA1Mjk0NX0._rtoKVJk5c0A9_YPoKWipgADJ3_XnghR4Ufto8hVoi0',
   },
 });

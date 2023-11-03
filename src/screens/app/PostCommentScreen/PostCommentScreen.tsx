@@ -14,7 +14,7 @@ export function PostCommentScreen({
 }: AppScreenProps<'PostCommentScreen'>) {
   const {postId} = route.params;
 
-  const {commentsList, isLoading, refetch} = usePostCommentScreen(postId);
+  const {commentsList, isLoading} = usePostCommentScreen(postId);
 
   function renderCommentItem({item}: ListRenderItemInfo<CommentProps>) {
     return <CommentItem comment={item} />;
@@ -34,10 +34,8 @@ export function PostCommentScreen({
   return (
     <Screen
       canGoBack
-      FooterComponent={
-        <FixedCommentSection postId={postId} onAddComment={refetch} />
-      }
-      title={`Comentários (${commentsList.length})`}
+      FooterComponent={<FixedCommentSection postId={postId} />}
+      title={`Comentários (${commentsList?.length})`}
       isLoading={isLoading}>
       <FlatList
         data={commentsList}

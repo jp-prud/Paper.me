@@ -1,4 +1,9 @@
-import {FlatList, ListRenderItemInfo, ViewStyle} from 'react-native';
+import {
+  FlatList,
+  ListRenderItemInfo,
+  ViewStyle,
+  RefreshControl,
+} from 'react-native';
 
 import {PostProps} from '@types';
 
@@ -15,7 +20,8 @@ import {HomeHero} from './components/HomeHero';
 import {useHomeScreen} from './useHomeScreen';
 
 export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
-  const {postList, isLoading, error, refetch, homeContentRef} = useHomeScreen();
+  const {postList, isLoading, isError, refetch, homeContentRef} =
+    useHomeScreen();
 
   function renderPost({item}: ListRenderItemInfo<PostProps>) {
     return <PostItem post={item} />;
@@ -28,6 +34,9 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
   function renderHomeContent() {
     return (
       <FlatList
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={refetch} />
+        }
         data={postList}
         ref={homeContentRef}
         renderItem={renderPost}
@@ -66,10 +75,10 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
     <Screen
       isLoading={isLoading}
       customHeader={<HomeHeader />}
-      FooterComponent={!isLoading && !error && <AddPostFixedButton />}
+      FooterComponent={!isLoading && !isError && <AddPostFixedButton />}
       footerContainerStyle={$homeScreenStyleContainer}>
       <RenderIfElse
-        condition={error}
+        condition={isError}
         renderIf={<HomeErrorPostList refetch={refetch} />}
         renderElse={renderHomeContent()}
       />

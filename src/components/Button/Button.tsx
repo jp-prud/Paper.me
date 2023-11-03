@@ -3,6 +3,7 @@ import {
   TouchableOpacityBox,
   TouchableOpacityBoxProps,
   Text,
+  RenderIfElse,
 } from '@components';
 
 import {buttonPresets} from './buttonPresets';
@@ -40,13 +41,15 @@ export function Button({
       borderRadius="s16"
       {...buttonPreset.container}
       {...touchableOpacityBoxProps}>
-      {loading ? (
-        <ActivityIndicator color={buttonPreset.content} />
-      ) : (
-        <Text preset="paragraphMedium" bold color={buttonPreset.content}>
-          {text}
-        </Text>
-      )}
+      <RenderIfElse
+        condition={Boolean(loading)}
+        renderIf={<ActivityIndicator color={buttonPreset.content} />}
+        renderElse={
+          <Text preset="paragraphMedium" bold color={buttonPreset.content}>
+            {text}
+          </Text>
+        }
+      />
     </TouchableOpacityBox>
   );
 }

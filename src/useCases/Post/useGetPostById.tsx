@@ -5,14 +5,17 @@ import {PostProps, QueryKeys} from '@types';
 export function useGetPostById(postId: PostProps['id']) {
   const {findById} = PostService();
 
-  const {data, isLoading, isError} = useQuery({
+  const {data, isSuccess, isLoading, error, isError} = useQuery({
     queryKey: [QueryKeys.GetPostById, postId],
     queryFn: () => findById(postId),
+    retry: false,
   });
 
   return {
-    post: data as PostProps,
+    post: data,
     isLoading,
-    error: isError,
+    error,
+    isError,
+    isSuccess,
   };
 }

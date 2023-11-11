@@ -1,60 +1,67 @@
-import {createContext, useCallback, useState} from 'react';
+import {createContext, useCallback, useEffect, useState} from 'react';
 
-import {AuthProps, AuthServiceProps} from '@context';
-import {AuthService, SignUpParamsDTO} from '@services';
+import {AuthServiceProps} from '@context';
+import {AuthService} from '@services';
+import {AuthCredentials} from '@types';
 import {delay} from '@utils';
 
-import {useMutation} from '@hooks';
+import {authCredentialsStorage} from '../authCredentialsStorage';
 
-import {HttpClient} from '../../../services/utils/HttpClient';
-
-export const AuthContext = createContext({} as AuthServiceProps & AuthProps);
+export const AuthContext = createContext({} as AuthServiceProps);
 
 export function AuthProvider({children}: {children: React.ReactNode}) {
-  const {signIn} = AuthService();
-  const [isAuthenticated, setIsAuthenticate] = useState(true);
+  const {updateAccessToken, removeAccessToken} = AuthService();
 
-  const {mutate, isLoading} = useMutation<SignUpParamsDTO, any>(
-    data => signIn(data),
-    {
-      onSuccess: ({accessToken}) => {
-        HttpClient.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+  const [authCredentials, setAuthCredentials] =
+    useState<AuthCredentials | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-        setIsAuthenticate(true);
-      },
-      onError: () => {
-        setIsAuthenticate(true);
-      },
-    },
-  );
-
-  const handleSignIn = useCallback(
-    async (data: SignUpParamsDTO) => {
-      mutate(data);
-    },
-    [mutate],
-  );
-
-  const handleSignUp = useCallback(async () => {
+  const loadCredentials = useCallback(async () => {
     await delay();
 
-    setIsAuthenticate(true);
-  }, []);
+    try {
+      const credentials = await authCredentialsStorage.load();
 
-  const handleLogout = useCallback(async () => {
+      if (credentials) {
+        updateAccessToken(credentials.accessToken);
+        setAuthCredentials(credentials);
+      }
+    } catch (error) {
+      // TODO: Handle error
+    } finally {
+      setIsLoading(false);
+    }
+  }, [updateAccessToken]);
+
+  async function saveCredentials(credentials: AuthCredentials) {
     await delay();
 
-    setIsAuthenticate(false);
-  }, []);
+    updateAccessToken(credentials.accessToken);
+    authCredentialsStorage.save(credentials);
+    setAuthCredentials(credentials);
+    setIsLoading(false);
+  }
+
+  async function removeCredentials() {
+    await delay();
+
+    removeAccessToken();
+    authCredentialsStorage.remove();
+    setAuthCredentials(null);
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    loadCredentials();
+  }, [loadCredentials]);
 
   return (
     <AuthContext.Provider
       value={{
-        isAuthenticated,
-        handleSignIn,
-        handleSignUp,
-        handleLogout,
+        authCredentials,
         isLoading,
+        saveCredentials,
+        removeCredentials,
       }}>
       {children}
     </AuthContext.Provider>

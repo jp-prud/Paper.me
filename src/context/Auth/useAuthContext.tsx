@@ -1,8 +1,9 @@
 import {useContext} from 'react';
 
+import {AuthServiceProps} from './Auth.types';
 import {AuthContext} from './Providers/Auth';
 
-export function useAuthContext() {
+export function useAuthContext(): AuthServiceProps {
   const authContext = useContext(AuthContext);
 
   if (!authContext) {

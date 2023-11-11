@@ -1,4 +1,6 @@
 export * from './auth/SignInScreen/SignInScreen';
+export * from './auth/SignUpScreeen/SignUpScreen';
+export * from './auth/RecoveryPasswordScreen/RecoveryPasswordScreen';
 
 export * from './app/HomeScreen/HomeScreen';
 export * from './app/PostDetailsScreen/PostDetailsScreen';

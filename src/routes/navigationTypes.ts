@@ -8,6 +8,8 @@ import {CategoryProps, CreatePostDTO, PostProps} from '@types';
 
 export type AuthStackParamList = {
   SignInScreen: undefined;
+  SignUpScreen: undefined;
+  RecoveryPasswordScreen: undefined;
 };
 
 export type AppStackParamList = {

@@ -1,3 +1,5 @@
+import {Pressable} from 'react-native';
+
 import {
   Screen,
   Text,
@@ -6,23 +8,24 @@ import {
   Button,
   FormPasswordInput,
 } from '@components';
+import {AuthScreenProps} from '@routes';
 
 import {useSignInScreen} from './useSignInScreen';
 
-export function SignInScreen() {
-  const {control, onSubmit, isLoading} = useSignInScreen();
+export function SignInScreen({}: AuthScreenProps<'SignInScreen'>) {
+  const {control, onSubmit, isPending} = useSignInScreen();
 
   return (
     <Screen scrollable>
-      <Box gap="s16" mb="s24">
-        <Text preset="headingMedium">Bem vindo(a)! 🙂</Text>
+      <Box gap="s8" mb="s40" mt="s20">
+        <Text preset="headingLarge">Olá!</Text>
         <Text>
           Acesse o aplicativo e leia sobre os principais artigos e projetos
           acadêmicos da área do seu interesse.
         </Text>
       </Box>
 
-      <Box gap="s16">
+      <Box gap="s16" mb="s8">
         <FormTextInput
           control={control}
           name="email"
@@ -35,7 +38,17 @@ export function SignInScreen() {
           label="Senha"
           placeholder="Insira sua senha"
         />
-        <Button text="Acessar" onPress={onSubmit} loading={isLoading} />
+      </Box>
+
+      <Pressable>
+        <Text bold color="primary">
+          Esqueci minha senha
+        </Text>
+      </Pressable>
+
+      <Box mt="s48" gap="s12">
+        <Button text="Acessar" onPress={onSubmit} loading={isPending} />
+        <Button text="Criar uma conta" onPress={() => {}} preset="outline" />
       </Box>
     </Screen>
   );

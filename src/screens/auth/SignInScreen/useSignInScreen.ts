@@ -1,5 +1,5 @@
-import {useAuthService} from '@context';
 import {zodResolver} from '@hookform/resolvers/zod';
+import {useSignIn} from '@useCases';
 import {useForm} from 'react-hook-form';
 
 import {
@@ -8,12 +8,12 @@ import {
 } from './signInScreenFormSchema';
 
 export function useSignInScreen() {
-  const {isLoading, handleSignIn} = useAuthService();
+  const {isPending, signIn} = useSignIn();
 
   const {control, handleSubmit} = useForm<SignInFormSchemaTypes>({
     defaultValues: {
-      email: 'takeoff@mail.com',
-      password: 'youngtake',
+      email: '',
+      password: '',
     },
     resolver: zodResolver(SignInFormSchema),
   });
@@ -21,12 +21,12 @@ export function useSignInScreen() {
   const onSubmit = handleSubmit(async data => {
     const {email, password} = data;
 
-    handleSignIn({email, password});
+    signIn({email, password});
   });
 
   return {
     control,
     onSubmit,
-    isLoading,
+    isPending,
   };
 }

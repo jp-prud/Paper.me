@@ -33,18 +33,23 @@ export function HomeScreen({}: AppScreenProps<'HomeScreen'>) {
 
   function renderHomeContent() {
     return (
-      <FlatList
-        refreshControl={
-          <RefreshControl refreshing={isLoading} onRefresh={refetch} />
+      <RenderIfElse
+        condition={Boolean(postList && postList?.length > 0)}
+        renderIf={
+          <FlatList
+            refreshControl={
+              <RefreshControl refreshing={isLoading} onRefresh={refetch} />
+            }
+            data={postList}
+            ref={homeContentRef}
+            renderItem={renderPost}
+            keyExtractor={item => item.id}
+            ListHeaderComponent={renderHeroContent}
+            showsVerticalScrollIndicator={false}
+            ItemSeparatorComponent={renderSeparator}
+          />
         }
-        data={postList}
-        ref={homeContentRef}
-        renderItem={renderPost}
-        keyExtractor={item => item.id}
-        ListHeaderComponent={renderHeroContent}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={<HomeEmptyPostList />}
-        ItemSeparatorComponent={renderSeparator}
+        renderElse={<HomeEmptyPostList />}
       />
     );
   }

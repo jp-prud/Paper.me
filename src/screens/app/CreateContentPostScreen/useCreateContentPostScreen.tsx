@@ -48,7 +48,7 @@ export function useCreateContentPostScreen({
       message: 'Erro ao criar post!',
     });
 
-    setTimeout(() => hideToast(), 1800);
+    hideToast();
   }
 
   const handlePressCreatePost = useCallback(() => {
@@ -61,7 +61,7 @@ export function useCreateContentPostScreen({
         type: 'info',
       });
 
-      setTimeout(() => hideToast(), 1800);
+      hideToast();
 
       return;
     }

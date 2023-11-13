@@ -10,12 +10,18 @@ export function HomeEmptyPostList() {
   }
 
   return (
-    <Box testID="home-empty-post-list">
-      <Text textAlign="center">Nenhum post encontrado.</Text>
-      <Box>
-        <Text textAlign="center">Seja o primeiro a criar um post.</Text>
-        <Button text="Criar post" onPress={handleCreatePost} />
+    <Box testID="home-empty-post-list" flex={1} justifyContent="center">
+      <Box alignItems="center" gap="s4" mb="s24">
+        <Text textAlign="center" preset="paragraphLarge" bold>
+          Oops! 🙈
+        </Text>
+
+        <Text textAlign="center">
+          Nenhum post encontrado. Seja o primeiro a criar um post.
+        </Text>
       </Box>
+
+      <Button text="Criar post" onPress={handleCreatePost} />
     </Box>
   );
 }

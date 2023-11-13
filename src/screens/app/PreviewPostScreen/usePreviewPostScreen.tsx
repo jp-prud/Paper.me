@@ -7,15 +7,19 @@ import {
   PreviewPostFormSchema,
 } from './previewPostScreenFormSchema';
 
+const defaultValues: PreviewPostFormSchemaTypes = {
+  title: '',
+  subtitle: '',
+  thumbnail: '',
+  description: '',
+};
+
 export function usePreviewPostScreen() {
   const navigation = useNavigation();
 
   const {control, handleSubmit} = useForm<PreviewPostFormSchemaTypes>({
     defaultValues: {
-      title: '',
-      subtitle: '',
-      thumbnail: '',
-      description: '',
+      ...defaultValues,
     },
     resolver: zodResolver(PreviewPostFormSchema),
   });

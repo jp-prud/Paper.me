@@ -11,6 +11,10 @@ import {
   NewCommentFormSchema,
 } from '../newCommentFormSchema';
 
+const defaultValues: NewCommentFormSchemaTypes = {
+  content: '',
+};
+
 export function useFixedCommentSection(postId: PostProps['id']) {
   const {createComment} = useCreateComment(postId, {
     onSuccess: onCommentCreated,
@@ -27,7 +31,7 @@ export function useFixedCommentSection(postId: PostProps['id']) {
   } = useForm<NewCommentFormSchemaTypes>({
     resolver: zodResolver(NewCommentFormSchema),
     defaultValues: {
-      content: '',
+      ...defaultValues,
     },
     mode: 'onSubmit',
   });
@@ -45,7 +49,7 @@ export function useFixedCommentSection(postId: PostProps['id']) {
       message: 'Comentário adicionado com sucesso!',
     });
 
-    setTimeout(() => hideToast(), 2000);
+    hideToast();
   }
 
   return {

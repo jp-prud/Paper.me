@@ -12,5 +12,9 @@ export interface ToastProps {
 export interface ToastService {
   toast: ToastProps | null;
   showToast: (props: ToastProps) => void;
-  hideToast: () => void;
+  hideToast: (props?: HideToastProps) => void;
+}
+
+export interface HideToastProps {
+  duration?: number;
 }

@@ -45,7 +45,7 @@ export function Button({
         condition={Boolean(loading)}
         renderIf={<ActivityIndicator color={buttonPreset.content} />}
         renderElse={
-          <Text preset="paragraphMedium" bold color={buttonPreset.content}>
+          <Text bold color={buttonPreset.content}>
             {text}
           </Text>
         }

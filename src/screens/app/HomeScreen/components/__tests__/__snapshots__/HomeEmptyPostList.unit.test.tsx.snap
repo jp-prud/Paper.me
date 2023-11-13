@@ -5,41 +5,48 @@ exports[`HomeEmptyPostList - unit should render the component 1`] = `
   <View
     style={
       [
-        {},
+        {
+          "flex": 1,
+          "justifyContent": "center",
+        },
       ]
     }
     testID="home-empty-post-list"
   >
-    <Text
-      selectionColor="#c7e7ea"
-      style={
-        [
-          {
-            "color": "#262626",
-            "textAlign": "center",
-          },
-          [
-            {
-              "fontSize": 16,
-              "lineHeight": 22.4,
-            },
-            {
-              "fontFamily": "PlusJakartaSans-Regular",
-            },
-            undefined,
-          ],
-        ]
-      }
-    >
-      Nenhum post encontrado.
-    </Text>
     <View
       style={
         [
-          {},
+          {
+            "alignItems": "center",
+            "gap": 4,
+            "marginBottom": 24,
+          },
         ]
       }
     >
+      <Text
+        selectionColor="#c7e7ea"
+        style={
+          [
+            {
+              "color": "#262626",
+              "textAlign": "center",
+            },
+            [
+              {
+                "fontSize": 18,
+                "lineHeight": 25.2,
+              },
+              {
+                "fontFamily": "PlusJakartaSans-Bold",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Oops! 🙈
+      </Text>
       <Text
         selectionColor="#c7e7ea"
         style={
@@ -61,71 +68,71 @@ exports[`HomeEmptyPostList - unit should render the component 1`] = `
           ]
         }
       >
-        Seja o primeiro a criar um post.
+        Nenhum post encontrado. Seja o primeiro a criar um post.
       </Text>
-      <View
-        accessibilityState={
-          {
-            "busy": undefined,
-            "checked": undefined,
-            "disabled": undefined,
-            "expanded": undefined,
-            "selected": undefined,
-          }
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
         }
-        accessibilityValue={
-          {
-            "max": undefined,
-            "min": undefined,
-            "now": undefined,
-            "text": undefined,
-          }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
         }
-        accessible={true}
-        collapsable={false}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#017582",
+          "borderRadius": 16,
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        selectionColor="#c7e7ea"
         style={
-          {
-            "alignItems": "center",
-            "backgroundColor": "#017582",
-            "borderRadius": 16,
-            "height": 50,
-            "justifyContent": "center",
-            "opacity": 1,
-            "paddingHorizontal": 20,
-          }
-        }
-      >
-        <Text
-          selectionColor="#c7e7ea"
-          style={
+          [
+            {
+              "color": "#FFFFFF",
+            },
             [
               {
-                "color": "#FFFFFF",
+                "fontSize": 16,
+                "lineHeight": 22.4,
               },
-              [
-                {
-                  "fontSize": 16,
-                  "lineHeight": 22.4,
-                },
-                {
-                  "fontFamily": "PlusJakartaSans-Bold",
-                },
-                undefined,
-              ],
-            ]
-          }
-        >
-          Criar post
-        </Text>
-      </View>
+              {
+                "fontFamily": "PlusJakartaSans-Bold",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Criar post
+      </Text>
     </View>
   </View>,
   " ",

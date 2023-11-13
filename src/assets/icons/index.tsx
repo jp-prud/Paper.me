@@ -5,6 +5,8 @@ export {CheckIcon} from './CheckIcon';
 export {ChevronIcon} from './ChevronIcon';
 export {ClockIcon} from './ClockIcon';
 export {CloseIcon} from './CloseIcon';
+export {EyeOnIcon} from './EyeOnIcon';
+export {EyeOffIcon} from './EyeOffIcon';
 export {FavoriteIcon} from './FavoriteIcon';
 export {HeartIcon} from './HeartIcon';
 export {HomeIcon} from './HomeIcon';

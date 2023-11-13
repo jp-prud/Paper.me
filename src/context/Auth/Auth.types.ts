@@ -1,12 +1,8 @@
-import {SignUpParamsDTO} from '@services';
-
-export interface AuthProps {
-  isAuthenticated: boolean;
-}
+import {AuthCredentials} from '@types';
 
 export interface AuthServiceProps {
-  handleSignIn: (data: SignUpParamsDTO) => void;
-  handleSignUp: () => void;
-  handleLogout: () => void;
+  authCredentials: AuthCredentials | null;
+  saveCredentials: (credentials: AuthCredentials) => Promise<void>;
+  removeCredentials: () => Promise<void>;
   isLoading: boolean;
 }

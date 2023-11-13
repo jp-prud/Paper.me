@@ -4,6 +4,17 @@ import {rest} from 'msw';
 import {commentMock, postListMock, userMock} from '../mocks';
 
 export const handlers = [
+  // AUTH
+  rest.post(`${BASE_URL}auth/signin`, (req, resp, ctx) => {
+    return resp(
+      ctx.status(200),
+      ctx.json({
+        email: 'jprudencio@mail.com',
+        password: 'password',
+      }),
+    );
+  }),
+
   // POSTS
   rest.get(`${BASE_URL}posts`, (req, resp, ctx) => {
     return resp(ctx.status(200), ctx.json(postListMock));

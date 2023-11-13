@@ -4,4 +4,7 @@ export enum QueryKeys {
   GetPostById = 'GetPostById',
   CreateComment = 'CreateComment',
   UserMe = 'UserMe',
+  SignIn = 'SignIn',
+  SignOut = 'SignOut',
+  SignUp = 'SignUp',
 }

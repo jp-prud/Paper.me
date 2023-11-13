@@ -38,7 +38,7 @@ export function TextInput({
   const $textInputContainer: BoxProps = {
     borderWidth: errorMessage ? 2 : 1,
     borderColor: errorMessage ? 'error' : 'gray4',
-    borderRadius: 's12',
+    borderRadius: 's16',
     p: 's16',
     flexDirection: 'row',
     alignItems: 'center',
@@ -51,18 +51,10 @@ export function TextInput({
   return (
     <Pressable onPress={handleClickInputFocus}>
       <Box g="s4">
-        {label && (
-          <Text preset="paragraphSmall" semiBold>
-            {label}
-          </Text>
-        )}
+        {label && <Text semiBold>{label}</Text>}
 
         <Box {...$textInputContainer} style={[boxContainerStyles]}>
-          {prefix && (
-            <Text color={'gray2'} mr="s4">
-              {prefix}
-            </Text>
-          )}
+          {prefix && <Text color={'gray2'}>{prefix}</Text>}
 
           <RNTextInput
             ref={inputRef}

@@ -54,11 +54,7 @@ export function TextInput({
         {label && <Text semiBold>{label}</Text>}
 
         <Box {...$textInputContainer} style={[boxContainerStyles]}>
-          {prefix && (
-            <Text color={'gray2'} mr="s4">
-              {prefix}
-            </Text>
-          )}
+          {prefix && <Text color={'gray2'}>{prefix}</Text>}
 
           <RNTextInput
             ref={inputRef}

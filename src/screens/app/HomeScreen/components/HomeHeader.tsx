@@ -4,7 +4,7 @@ import {useGetUserData} from '@useCases';
 import {Avatar, Box, Icon, Text, TouchableOpacityBox} from '@components';
 
 export function HomeHeader() {
-  const {userData} = useGetUserData();
+  const {userData, isLoading: userDataLoading} = useGetUserData();
 
   const {navigate} = useNavigation();
 
@@ -29,10 +29,10 @@ export function HomeHeader() {
       <TouchableOpacityBox
         onPress={handleClickNavigateToProfileScreen}
         testID="avatar-header-container">
-        <Avatar user={userData} />
+        {!userDataLoading && <Avatar user={userData} />}
       </TouchableOpacityBox>
 
-      <Text preset="paragraphLarge" bold>
+      <Text preset="headingSmall" bold>
         Início
       </Text>
 

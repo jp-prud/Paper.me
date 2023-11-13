@@ -3,6 +3,7 @@ import {Image} from 'react-native';
 import {UserProps} from '@types';
 
 import {Box} from '../Box/Box';
+import {RenderIfElse} from '../RenderIfElse/RenderIfElse';
 
 export interface AvatarProps {
   size?: number;
@@ -26,13 +27,21 @@ export function Avatar({size = 32, user}: AvatarProps) {
       alignItems="center"
       testID="avatar-component">
       <Box borderRadius="s32" overflow="hidden">
-        <Image
-          source={{
-            uri: avatar,
-          }}
-          alt={name}
-          width={size}
-          height={size}
+        <RenderIfElse
+          condition={Boolean(!user.avatar)}
+          renderElse={
+            <Image
+              source={{
+                uri: avatar,
+              }}
+              alt={name}
+              width={size}
+              height={size}
+            />
+          }
+          renderIf={
+            <Box width={size} height={size} backgroundColor="primary" />
+          }
         />
       </Box>
     </Box>

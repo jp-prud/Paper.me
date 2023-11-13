@@ -13,7 +13,7 @@ import {AuthScreenProps} from '@routes';
 import {useSignInScreen} from './useSignInScreen';
 
 export function SignInScreen({}: AuthScreenProps<'SignInScreen'>) {
-  const {control, onSubmit, isPending} = useSignInScreen();
+  const {control, onSubmit, isPending, onSignUpPress} = useSignInScreen();
 
   return (
     <Screen scrollable>
@@ -48,7 +48,11 @@ export function SignInScreen({}: AuthScreenProps<'SignInScreen'>) {
 
       <Box mt="s48" gap="s12">
         <Button text="Acessar" onPress={onSubmit} loading={isPending} />
-        <Button text="Criar uma conta" onPress={() => {}} preset="outline" />
+        <Button
+          text="Criar uma conta"
+          onPress={onSignUpPress}
+          preset="outline"
+        />
       </Box>
     </Screen>
   );

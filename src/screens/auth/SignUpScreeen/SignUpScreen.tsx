@@ -11,13 +11,18 @@ import {AuthScreenProps} from '@routes';
 import {useSignUpScreen} from './useSignUpScreen';
 
 export function SignUpScreen({}: AuthScreenProps<'SignUpScreen'>) {
-  const {control, onSubmit} = useSignUpScreen();
+  const {control, onSubmit, isPending} = useSignUpScreen();
 
   return (
-    <Screen canGoBack>
-      <Text preset="headingLarge">Criar uma conta</Text>
+    <Screen canGoBack scrollable>
+      <Box gap="s8" mb="s40">
+        <Text preset="headingLarge">Criar uma conta</Text>
+        <Text>
+          Insira seus dados para criar uma conta e acessar o aplicativo.
+        </Text>
+      </Box>
 
-      <Box gap="s16" mt="s32" mb="s48">
+      <Box gap="s16" mb="s48">
         <FormTextInput
           control={control}
           name="username"
@@ -47,7 +52,7 @@ export function SignUpScreen({}: AuthScreenProps<'SignUpScreen'>) {
         />
       </Box>
 
-      <Button text="Criar minha conta" onPress={onSubmit} />
+      <Button text="Criar minha conta" onPress={onSubmit} loading={isPending} />
     </Screen>
   );
 }

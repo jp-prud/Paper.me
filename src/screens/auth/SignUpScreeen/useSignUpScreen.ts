@@ -1,18 +1,35 @@
+import {useToastService} from '@context';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useSignUp} from '@useCases';
 import {useForm} from 'react-hook-form';
 
 import {SignUpFormSchema, SignUpFormSchemaTypes} from './signUpFormSchema';
 
+const defaultValues: SignUpFormSchemaTypes = {
+  username: '',
+  fullName: '',
+  email: '',
+  password: '',
+};
+
 export function useSignUpScreen() {
-  const {signUp} = useSignUp();
+  const {showToast, hideToast} = useToastService();
+
+  const {signUp, isPending} = useSignUp({
+    onError: errorMessage => {
+      console.log(errorMessage);
+
+      showToast({
+        message: 'Error al crear la cuenta',
+      });
+
+      hideToast();
+    },
+  });
 
   const {control, handleSubmit} = useForm<SignUpFormSchemaTypes>({
     defaultValues: {
-      username: '',
-      fullName: '',
-      email: '',
-      password: '',
+      ...defaultValues,
     },
     resolver: zodResolver(SignUpFormSchema),
   });
@@ -20,8 +37,8 @@ export function useSignUpScreen() {
   const onSubmit = handleSubmit(async data => {
     const {username, fullName, email, password} = data;
 
-    signUp({username, fullName, email, password});
+    signUp({username, fullName, email, password, avatar: ''});
   });
 
-  return {control, onSubmit};
+  return {control, onSubmit, isPending};
 }

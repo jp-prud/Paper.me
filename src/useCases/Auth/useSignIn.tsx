@@ -3,12 +3,15 @@ import {AuthService} from '@services';
 import {useMutation} from '@tanstack/react-query';
 import {AuthCredentials, MutationOptions, QueryKeys, SignInDTO} from '@types';
 
+export const ON_ERROR_SIGN_IN_DEFAULT_MESSAGE =
+  "The user couldn't be signed in!";
+
 export function useSignIn(options?: MutationOptions<AuthCredentials>) {
   const {signIn} = AuthService();
 
   const {saveCredentials} = useAuthContext();
 
-  const {mutate, data, isPending, isError, isSuccess} = useMutation<
+  const {mutate, data, isPending, isError, error, isSuccess} = useMutation<
     AuthCredentials,
     unknown,
     SignInDTO
@@ -26,7 +29,7 @@ export function useSignIn(options?: MutationOptions<AuthCredentials>) {
     onError: () => {
       if (options?.onError) {
         options.onError(
-          options?.errorMessage || "The user couldn't be signed in!",
+          options?.errorMessage || ON_ERROR_SIGN_IN_DEFAULT_MESSAGE,
         );
       }
     },
@@ -34,6 +37,7 @@ export function useSignIn(options?: MutationOptions<AuthCredentials>) {
 
   return {
     signIn: (signInDTO: SignInDTO) => mutate(signInDTO),
+    error,
     data,
     isPending,
     isError,

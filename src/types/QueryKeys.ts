@@ -6,4 +6,5 @@ export enum QueryKeys {
   UserMe = 'UserMe',
   SignIn = 'SignIn',
   SignOut = 'SignOut',
+  SignUp = 'SignUp',
 }

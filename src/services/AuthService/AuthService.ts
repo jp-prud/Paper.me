@@ -1,4 +1,4 @@
-import {AuthCredentials, SignInDTO} from '@types';
+import {AuthCredentials, SignInDTO, SignUpDTO} from '@types';
 import {delay} from '@utils';
 
 import {HttpClient} from '../utils/HttpClient';
@@ -13,7 +13,14 @@ export function AuthService() {
     return response.data;
   }
 
-  async function signUp() {}
+  async function signUp(signUpDTO: SignUpDTO) {
+    const response = await HttpClient.post<AuthCredentials>(
+      'auth/signup',
+      signUpDTO,
+    );
+
+    return response.data;
+  }
 
   async function signOut() {
     await delay();

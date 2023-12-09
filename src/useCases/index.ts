@@ -6,6 +6,8 @@ export * from './Comment/useListCommentsByPost';
 export * from './Comment/useCreateComment';
 
 export * from './Post/usePostList';
+export * from './Post/useRecentStoragePostList';
+export * from './Post/useSaveStoragePost';
 export * from './Post/useGetPostById';
 export * from './Post/useCreatePost';
 

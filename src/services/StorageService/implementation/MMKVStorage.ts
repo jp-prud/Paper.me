@@ -13,6 +13,12 @@ export const MMKVStorage: Storage = {
     return null;
   },
   setItem: async (key, value) => {
+    const storageItem = MMKVInstance.getString(key);
+
+    if (storageItem) {
+      MMKVInstance.set(key, JSON.stringify([...storageItem, value]));
+    }
+
     MMKVInstance.set(key, JSON.stringify(value));
   },
   removeItem: async key => MMKVInstance.delete(key),
